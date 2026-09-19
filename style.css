@@ -1,0 +1,858 @@
+/* ========================================
+   1. Design tokens
+   ======================================== */
+
+:root {
+  color-scheme: light;
+
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-muted: #eef2f6;
+  --color-text: #172334;
+  --color-text-muted: #526175;
+  --color-primary: #155e75;
+  --color-primary-hover: #104a5d;
+  --color-on-primary: #ffffff;
+  --color-border: #ccd5df;
+  --color-focus: #9a3412;
+
+  --font-body: "Segoe UI", Arial, sans-serif;
+  --font-size-xs: 0.8125rem;
+  --font-size-sm: 0.9375rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.375rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+
+  --container-width: 84rem;
+  --shadow-card: 0 0.5rem 1.5rem rgb(23 35 52 / 7%);
+  --transition-speed: 180ms;
+}
+
+/* JavaScript sets data-theme on the <html> element. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-background: #0c1420;
+  --color-surface: #142131;
+  --color-surface-muted: #1b2c3f;
+  --color-text: #eef4fa;
+  --color-text-muted: #b3c2d3;
+  --color-primary: #7dd3fc;
+  --color-primary-hover: #bae6fd;
+  --color-on-primary: #0c1420;
+  --color-border: #405268;
+  --color-focus: #fbbf24;
+
+  --shadow-card: 0 0.5rem 1.5rem rgb(0 0 0 / 20%);
+}
+
+/* ========================================
+   2. Reset and base styles
+   ======================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-6);
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  letter-spacing: -0.045em;
+}
+
+h2 {
+  font-size: clamp(1.625rem, 3vw, 2.25rem);
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+  letter-spacing: -0.015em;
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+a {
+  color: var(--color-primary);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+/* Preserve the HTML hidden attribute when using flex or grid. */
+[hidden] {
+  display: none !important;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+/* ========================================
+   3. Shared layout and accessibility
+   ======================================== */
+
+.container {
+  width: min(
+    calc(100% - var(--space-6)),
+    var(--container-width)
+  );
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-7);
+}
+
+.section-heading {
+  margin-bottom: var(--space-5);
+}
+
+.section-heading h2 {
+  max-width: 30ch;
+}
+
+.section-heading-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.eyebrow {
+  margin-bottom: var(--space-3);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  transform: translateY(-200%);
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  color: var(--color-on-primary);
+}
+
+/* ========================================
+   4. Buttons and text links
+   ======================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 3rem;
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-speed) ease,
+    border-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+}
+
+.button-primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.button-primary:hover {
+  background: var(--color-primary-hover);
+  color: var(--color-on-primary);
+}
+
+.button-secondary {
+  border-color: var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.button-secondary:hover {
+  border-color: var(--color-primary);
+  background: var(--color-surface-muted);
+  color: var(--color-primary);
+}
+
+.file-type {
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   5. Header and navigation
+   ======================================== */
+
+.site-header {
+  padding-top: var(--space-4);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.site-logo {
+  margin-right: auto;
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.site-logo:hover {
+  color: var(--color-primary);
+}
+
+.menu-toggle,
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+}
+
+.menu-toggle:hover,
+.theme-toggle:hover {
+  border-color: var(--color-primary);
+  background: var(--color-surface-muted);
+}
+
+.site-nav {
+  order: 3;
+  width: 100%;
+}
+
+.nav-list,
+.footer-links {
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.nav-list a {
+  display: block;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] {
+  background: var(--color-surface-muted);
+  color: var(--color-primary);
+}
+
+.nav-list a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.4em;
+}
+
+/*
+  Navigation stays visible without JavaScript.
+  Once JavaScript reveals the menu button, aria-expanded
+  controls whether the mobile navigation is visible.
+*/
+.menu-toggle:not([hidden])[aria-expanded="false"] ~ .site-nav {
+  display: none;
+}
+
+/* ========================================
+   6. Hero
+   ======================================== */
+
+.hero {
+  padding-top: var(--space-7);
+}
+
+.hero-layout {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.hero-content {
+  align-self: center;
+  min-width: 0;
+}
+
+.hero h1 {
+  max-width: 19ch;
+}
+
+.hero h1 span {
+  color: var(--color-primary);
+}
+
+.hero-description {
+  max-width: 56ch;
+  margin-top: var(--space-5);
+  font-size: var(--font-size-lg);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.hero-actions .button {
+  flex: 1 1 10rem;
+}
+
+.hero-visual {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-muted);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 600 / 440;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ========================================
+   7. Skills
+   ======================================== */
+
+.skills-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.skill-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  min-width: 0;
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+}
+
+.skill-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+.skill-content {
+  min-width: 0;
+}
+
+.skill-content h3 {
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-lg);
+}
+
+.skill-content p {
+  font-size: var(--font-size-sm);
+}
+
+/* ========================================
+   8. Project cards
+   ======================================== */
+
+.projects-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--color-surface-muted);
+}
+
+.project-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--space-5);
+}
+
+.project-tags {
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.project-content > p:not(.project-tags) {
+  font-size: var(--font-size-sm);
+}
+
+.project-content .text-link {
+  margin-top: auto;
+}
+
+/* ========================================
+   9. Technical article
+   ======================================== */
+
+.article-preview {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+}
+
+.article-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.article-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.article-content h3 {
+  max-width: 36ch;
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+}
+
+.article-content p {
+  max-width: 55ch;
+}
+
+/* ========================================
+   10. Contact call to action
+   ======================================== */
+
+.contact-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.contact-panel h2 {
+  margin-bottom: var(--space-3);
+}
+
+.contact-panel .button {
+  flex-shrink: 0;
+}
+
+/* ========================================
+   11. Footer
+   ======================================== */
+
+.site-footer {
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-6);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-name {
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+.footer-identity > p + p {
+  margin-top: var(--space-1);
+  font-size: var(--font-size-sm);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* ========================================
+   12. Breakpoint 1: larger phones — 400px
+   ======================================== */
+
+@media (min-width: 25rem) and (max-width: 47.999rem) {
+  /* Compact horizontal cards match the mobile wireframe. */
+  .project-card {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: var(--space-4);
+    padding: var(--space-3);
+  }
+
+  .project-image {
+    height: 100%;
+    min-height: 9rem;
+    aspect-ratio: auto;
+    border-radius: var(--radius-sm);
+  }
+
+  .project-content {
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
+  }
+
+  .project-content h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .project-content .text-link {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* ========================================
+   13. Breakpoint 2: tablets — 768px
+   ======================================== */
+
+@media (min-width: 48rem) {
+  .container {
+    width: min(
+      calc(100% - var(--space-8)),
+      var(--container-width)
+    );
+  }
+
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .site-header {
+    padding-top: var(--space-5);
+  }
+
+  .hero-actions .button {
+    flex: 0 1 auto;
+  }
+
+  .hero-visual {
+    max-width: 40rem;
+  }
+
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-heading-row {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .section-heading-row > .text-link {
+    flex-shrink: 0;
+  }
+
+  .article-preview {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .article-image {
+    height: 100%;
+    min-height: 15rem;
+  }
+
+  .contact-panel {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-6);
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* ========================================
+   14. Breakpoint 3: desktop — 1200px
+   ======================================== */
+
+@media (min-width: 75rem) {
+  .header-inner {
+    flex-wrap: nowrap;
+    gap: var(--space-5);
+    padding-inline: var(--space-5);
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    order: initial;
+    width: auto;
+    margin-left: auto;
+  }
+
+  .menu-toggle:not([hidden])[aria-expanded="false"] ~ .site-nav {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-1);
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .nav-list a {
+    padding-inline: var(--space-3);
+  }
+
+  .hero-layout {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-7);
+    padding: var(--space-7);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+  }
+
+  .hero-visual {
+    max-width: none;
+  }
+
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .article-preview {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.65fr);
+  }
+
+  .article-content .button {
+    align-self: flex-end;
+  }
+}
+
+/* ========================================
+   15. Reduced-motion preferences
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
