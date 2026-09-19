@@ -933,3 +933,461 @@ a {
 .social-link-pending {
   opacity: 0.45;
 }
+
+
+/* =========================
+   ABOUT PAGE
+   ========================= */
+
+.page-about {
+  --about-surface: rgba(127, 145, 170, 0.08);
+  --about-border: rgba(127, 145, 170, 0.24);
+  --about-icon-surface: rgba(127, 145, 170, 0.14);
+}
+
+/* Introduction */
+
+.about-hero-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.4fr)
+    minmax(0, 1fr)
+    minmax(150px, 0.5fr);
+  align-items: center;
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.about-hero-content,
+.about-hero-visual,
+.about-stats {
+  min-width: 0;
+}
+
+.about-hero-content h1 {
+  max-width: 22ch;
+  margin: 0 0 24px;
+  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  overflow-wrap: break-word;
+}
+
+.about-hero-content .hero-description {
+  max-width: 56ch;
+}
+
+.about-hero-content .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.about-hero-content .social-links {
+  margin-top: 24px;
+}
+
+/* Portrait */
+
+.about-hero-visual {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  align-self: stretch;
+  overflow: hidden;
+  border: 1px solid var(--about-border);
+  border-radius: 16px;
+  background: var(--about-surface);
+}
+
+.about-portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  object-position: center bottom;
+  align-self: flex-end;
+}
+
+/* Statistics */
+
+.about-stats {
+  display: grid;
+  align-content: center;
+  align-self: stretch;
+  margin: 0;
+  padding: 8px 24px;
+  border: 1px solid var(--about-border);
+  border-radius: 16px;
+  background: var(--about-surface);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px 0;
+}
+
+.stat-item + .stat-item {
+  border-top: 1px solid var(--about-border);
+}
+
+.stat-item dt {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.stat-item dd {
+  order: -1;
+  margin: 0;
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+/* Section headings */
+
+.page-about .section-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 24px;
+}
+
+.page-about .section-note {
+  max-width: 32ch;
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Engineering approach */
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: approach;
+}
+
+.approach-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-content: start;
+  align-items: start;
+  gap: 18px;
+  min-width: 0;
+  padding: 32px 24px 24px;
+  border: 1px solid var(--about-border);
+  border-radius: 12px;
+  background: var(--about-surface);
+}
+
+.approach-icon,
+.page-about .technology-icon,
+.page-about .about-technologies .skill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--about-icon-surface);
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.approach-number {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.65;
+}
+
+.approach-content h3 {
+  margin: 0 0 10px;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+}
+
+.approach-content p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* Technologies
+   Supports technology-card or shared skill-card markup. */
+
+.technology-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.page-about .technology-grid > :is(.technology-card, .skill-card) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  min-width: 0;
+  padding: 22px 18px;
+  border: 1px solid var(--about-border);
+  border-radius: 12px;
+  background: var(--about-surface);
+}
+
+.technology-grid :is(.technology-icon, .skill-icon) {
+  margin-bottom: 20px;
+}
+
+.technology-grid .skill-content {
+  min-width: 0;
+}
+
+.technology-grid h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+.technology-grid p {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+}
+
+/* Beyond tech */
+
+.traits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.trait-card {
+  min-width: 0;
+  padding: 26px;
+  border: 1px solid var(--about-border);
+  border-radius: 12px;
+  background: var(--about-surface);
+}
+
+.trait-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+}
+
+.trait-card p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* Footer additions */
+
+.page-about .footer-inner {
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.page-about .footer-name {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-about .footer-nav .nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-about .footer-nav a {
+  font-size: 0.8125rem;
+}
+
+/* Tablet and smaller desktop */
+
+@media (max-width: 1100px) {
+  .about-hero-layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+
+  .about-stats {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 0;
+  }
+
+  .stat-item {
+    padding: 22px;
+  }
+
+  .stat-item + .stat-item {
+    border-top: 0;
+    border-left: 1px solid var(--about-border);
+  }
+
+  .technology-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .approach-grid,
+  .traits-grid {
+    gap: 16px;
+  }
+
+  .approach-card {
+    grid-template-columns: 1fr;
+    padding: 26px 20px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .about-hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .about-hero-content h1 {
+    max-width: 24ch;
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+
+  .about-hero-content .hero-description {
+    max-width: none;
+  }
+
+  .about-hero-content .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .about-hero-content .hero-actions .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-width: 0;
+    padding: 12px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .about-hero-visual {
+    min-height: 240px;
+  }
+
+  .about-portrait {
+    width: 100%;
+    max-height: 340px;
+  }
+
+  .about-stats {
+    grid-column: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-item {
+    padding: 20px;
+  }
+
+  .stat-item + .stat-item {
+    border-left: 0;
+  }
+
+  .stat-item:nth-child(even) {
+    border-left: 1px solid var(--about-border);
+  }
+
+  .stat-item:nth-child(n + 3) {
+    border-top: 1px solid var(--about-border);
+  }
+
+  .page-about .section-heading-row {
+    align-items: flex-start;
+  }
+
+  .approach-grid,
+  .traits-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .approach-card {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 16px;
+    padding: 28px 18px 22px;
+  }
+
+  .approach-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .technology-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .page-about .technology-grid > :is(.technology-card, .skill-card) {
+    padding: 20px 16px;
+  }
+
+  .technology-grid :is(.technology-icon, .skill-icon) {
+    margin-bottom: 16px;
+  }
+
+  .trait-card {
+    padding: 22px;
+  }
+
+  .page-about .footer-inner {
+    align-items: flex-start;
+  }
+
+  .page-about .footer-nav {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-hero-content .hero-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .approach-card {
+    gap: 12px;
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .page-about .technology-grid > :is(.technology-card, .skill-card) {
+    padding: 18px 12px;
+  }
+}
