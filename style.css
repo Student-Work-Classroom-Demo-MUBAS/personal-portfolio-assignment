@@ -2619,3 +2619,324 @@ a.contact-method:focus-visible {
     align-items: flex-start;
   }
 }
+
+/* =========================
+   LIGHT THEME
+   ========================= */
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --color-background: #f5faff;
+  --color-surface: #ffffff;
+  --color-surface-muted: #eaf4ff;
+
+  --color-text: #0b1733;
+  --color-text-muted: #405574;
+
+  --color-primary: #0060df;
+  --color-primary-hover: #004bb5;
+  --color-on-primary: #ffffff;
+
+  --color-border: #cbdff3;
+  --color-focus: #0055cc;
+
+  --shadow-card: 0 4px 16px rgb(25 70 120 / 6%);
+}
+
+/* Page and shared surfaces */
+
+:root[data-theme="light"] body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+:root[data-theme="light"] .site-header,
+:root[data-theme="light"] .site-footer {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+:root[data-theme="light"] .site-header {
+  border-bottom: 1px solid var(--color-border);
+}
+
+:root[data-theme="light"] .site-footer {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Identity and navigation */
+
+:root[data-theme="light"] .site-logo,
+:root[data-theme="light"] .nav-list a {
+  color: var(--color-text);
+}
+
+:root[data-theme="light"] .nav-list a[aria-current="page"] {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+
+/* Blue heading accents and links */
+
+:root[data-theme="light"] .eyebrow,
+:root[data-theme="light"] .text-link,
+:root[data-theme="light"] .hero h1 span,
+:root[data-theme="light"] .section-heading h2 span {
+  color: var(--color-primary);
+}
+
+/* Buttons */
+
+:root[data-theme="light"] .button-primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+:root[data-theme="light"] .button-secondary {
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+:root[data-theme="light"] .menu-toggle,
+:root[data-theme="light"] .theme-toggle {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+/* Project cards and supporting panels */
+
+:root[data-theme="light"] .project-card,
+:root[data-theme="light"] .case-study-card,
+:root[data-theme="light"] .contact-panel,
+:root[data-theme="light"] .contact-form-panel,
+:root[data-theme="light"] .contact-info-panel,
+:root[data-theme="light"] .opportunities-panel {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+/* Override the page-specific colour tokens */
+
+:root[data-theme="light"] .page-projects {
+  --projects-surface: var(--color-surface-muted);
+  --projects-border: var(--color-border);
+  --projects-active: #dcecff;
+}
+
+:root[data-theme="light"] .page-contact {
+  --contact-surface: var(--color-surface);
+  --contact-border: var(--color-border);
+  --contact-icon-surface: var(--color-surface-muted);
+  --contact-accent: var(--color-primary);
+}
+
+/* Form fields */
+
+:root[data-theme="light"] .form-group input,
+:root[data-theme="light"] .form-group textarea {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+:root[data-theme="light"] .form-group input::placeholder,
+:root[data-theme="light"] .form-group textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+/* Keyboard focus */
+
+:root[data-theme="light"] :focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+/* Hover states */
+
+@media (hover: hover) {
+  :root[data-theme="light"] .nav-list a:hover,
+  :root[data-theme="light"] .text-link:hover {
+    color: var(--color-primary-hover);
+  }
+
+  :root[data-theme="light"] .button-primary:hover {
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+  }
+
+  :root[data-theme="light"] .button-secondary:hover,
+  :root[data-theme="light"] .menu-toggle:hover,
+  :root[data-theme="light"] .theme-toggle:hover {
+    background: var(--color-surface-muted);
+  }
+}
+
+.site-nav[hidden],
+.menu-toggle[hidden],
+.theme-toggle[hidden] {
+  display: none !important;
+}
+
+/* Portrait background colours */
+
+:root {
+  --portrait-panel: #123859;
+  --portrait-panel-edge: #1a466d;
+}
+
+:root[data-theme="light"] {
+  --portrait-panel: #d3e8ff;
+  --portrait-panel-edge: #bddcff;
+}
+
+/* Portrait container */
+
+.page-home .hero-visual {
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+/* Slanted blue panel */
+
+.page-home .hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 4% 8% 3% 5%;
+  z-index: -1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    110deg,
+    var(--portrait-panel-edge) 0%,
+    var(--portrait-panel) 14%,
+    var(--portrait-panel) 86%,
+    var(--portrait-panel-edge) 86%
+  );
+
+  clip-path: polygon(
+    25% 0,
+    100% 0,
+    76% 100%,
+    0 93%
+  );
+}
+
+/* Remove a second decorative blob, if present */
+
+.page-home .hero-visual::after {
+  content: none;
+}
+
+/* Keep the portrait above the panel */
+
+.page-home .hero-image {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+/* Sun / moon theme toggle */
+
+:root {
+  --toggle-track: #0b3040;
+  --toggle-thumb: #24ade3;
+  --toggle-icon: #ffffff;
+}
+
+:root[data-theme="light"] {
+  --toggle-track: #fcebb2;
+  --toggle-thumb: #f4c332;
+}
+
+.theme-toggle,
+:root[data-theme="light"] .theme-toggle {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: 60px;
+  height: 32px;
+  min-width: 60px;
+  min-height: 32px;
+  align-self: center;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--toggle-track);
+  box-shadow: none;
+  cursor: pointer;
+  appearance: none;
+  transition: background-color 180ms ease;
+}
+
+/* Keep earlier hover rules from changing the track colour. */
+.theme-toggle:hover,
+:root[data-theme="light"] .theme-toggle:hover {
+  background: var(--toggle-track);
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  margin-top: -12px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--toggle-thumb);
+  color: var(--toggle-icon);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.theme-toggle[aria-pressed="true"] .theme-toggle-thumb {
+  transform: translateX(28px);
+}
+
+.theme-toggle-thumb svg {
+  grid-area: 1 / 1;
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle .theme-icon-moon {
+  display: none;
+}
+
+.theme-toggle[aria-pressed="true"] .theme-icon-sun {
+  display: none;
+}
+
+.theme-toggle[aria-pressed="true"] .theme-icon-moon {
+  display: block;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+.theme-toggle[hidden] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-toggle-thumb {
+    transition: none;
+  }
+}

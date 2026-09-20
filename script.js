@@ -25,7 +25,6 @@ function applyTheme(theme) {
   if (themeToggle) {
     themeToggle.setAttribute("aria-pressed", String(isDark));
     themeToggle.setAttribute("aria-label", "Dark mode");
-    themeToggle.textContent = isDark ? "☾ Dark mode" : "☀ Dark mode";
   }
 }
 
