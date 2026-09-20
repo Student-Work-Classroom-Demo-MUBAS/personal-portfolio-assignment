@@ -145,3 +145,135 @@ if (menuToggle && navigation) {
   mobileScreen.addEventListener("change", updateNavigation);
   updateNavigation();
 }
+/* =========================
+   CONTACT FORM VALIDATION
+   ========================= */
+
+const contactForm = document.querySelector("#contact-form");
+
+if (contactForm) {
+  const fieldset = contactForm.querySelector(".contact-form-fields");
+  const formStatus = contactForm.querySelector("#contact-form-status");
+
+  const fields = [
+    {
+      input: contactForm.querySelector("#contact-name"),
+      requiredMessage: "Please enter your name."
+    },
+    {
+      input: contactForm.querySelector("#contact-email"),
+      requiredMessage: "Please enter your email address."
+    },
+    {
+      input: contactForm.querySelector("#contact-subject"),
+      requiredMessage: "Please enter a subject."
+    },
+    {
+      input: contactForm.querySelector("#contact-message"),
+      requiredMessage: "Please enter your message."
+    }
+  ];
+
+  function getError(input, requiredMessage) {
+    if (!input.value.trim()) {
+      return requiredMessage;
+    }
+
+    if (input.type === "email" && input.validity.typeMismatch) {
+      return "Enter a valid email address, such as name@example.com.";
+    }
+
+    if (
+      input.maxLength > -1 &&
+      input.value.length > input.maxLength
+    ) {
+      return `Please use no more than ${input.maxLength} characters.`;
+    }
+
+    return "";
+  }
+
+  function validateField(field) {
+    const message = getError(field.input, field.requiredMessage);
+
+    field.error.textContent = message;
+    field.error.hidden = !message;
+
+    if (message) {
+      field.input.setAttribute("aria-invalid", "true");
+    } else {
+      field.input.removeAttribute("aria-invalid");
+    }
+
+    return message === "";
+  }
+
+  fields.forEach((field) => {
+    const error = document.createElement("p");
+
+    error.id = `${field.input.id}-error`;
+    error.className = "field-error";
+    error.hidden = true;
+    error.setAttribute("aria-live", "polite");
+
+    field.input.insertAdjacentElement("afterend", error);
+    field.error = error;
+
+    // Preserve any existing help-text associations.
+    const descriptionIds = new Set(
+      (field.input.getAttribute("aria-describedby") || "")
+        .split(/\s+/)
+        .filter(Boolean)
+    );
+
+    descriptionIds.add(error.id);
+
+    field.input.setAttribute(
+      "aria-describedby",
+      [...descriptionIds].join(" ")
+    );
+
+    // Validate when the visitor leaves a field.
+    field.input.addEventListener("blur", () => {
+      validateField(field);
+    });
+
+    // Recheck an invalid field while the visitor corrects it.
+    field.input.addEventListener("input", () => {
+      formStatus.textContent = "";
+
+      if (field.input.getAttribute("aria-invalid") === "true") {
+        validateField(field);
+      }
+    });
+  });
+
+  contactForm.addEventListener("submit", (event) => {
+    // Prevent submission until a real form service is connected.
+    event.preventDefault();
+
+    const invalidFields = fields.filter(
+      (field) => !validateField(field)
+    );
+
+    if (invalidFields.length > 0) {
+      const count = invalidFields.length;
+
+      formStatus.textContent =
+        `Please correct ${count} ${count === 1 ? "field" : "fields"} below.`;
+
+      invalidFields[0].input.focus();
+      return;
+    }
+
+    formStatus.textContent =
+      "Your details are valid, but this form cannot send messages yet. " +
+      "Please email uchixy2005@gmail.com.";
+
+    // Keep the entered details; nothing has been sent.
+  });
+
+  // Enable custom validation only after the handlers are ready.
+  contactForm.noValidate = true;
+  fieldset.disabled = false;
+}

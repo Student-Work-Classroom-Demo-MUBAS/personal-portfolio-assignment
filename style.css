@@ -444,6 +444,10 @@ a {
   padding-top: var(--space-7);
 }
 
+.page-home .hero {
+  padding-top: var(--space-2);
+}
+
 .hero-layout {
   display: grid;
   gap: var(--space-6);
@@ -2802,6 +2806,8 @@ a.contact-method:focus-visible {
 .page-home .hero-visual {
   position: relative;
   isolation: isolate;
+  width: min(100%, 24rem);
+  justify-self: center;
   background: transparent;
   border: 0;
   box-shadow: none;
@@ -2812,7 +2818,7 @@ a.contact-method:focus-visible {
 .page-home .hero-visual::before {
   content: "";
   position: absolute;
-  inset: 4% 8% 3% 5%;
+  inset: 9% 0 4%;
   z-index: -1;
   pointer-events: none;
 
@@ -2825,10 +2831,10 @@ a.contact-method:focus-visible {
   );
 
   clip-path: polygon(
-    25% 0,
+    20% 0,
     100% 0,
-    76% 100%,
-    0 93%
+    85% 100%,
+    0 100%
   );
 }
 
@@ -2844,6 +2850,26 @@ a.contact-method:focus-visible {
   position: relative;
   z-index: 1;
   display: block;
+  height: auto;
+  width: 100%;
+}
+
+@media (min-width: 48rem) {
+  .page-home .hero-layout {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(24px, 3vw, 48px);
+    align-items: start;
+  }
+
+  .page-home .hero-content {
+    align-self: start;
+    padding-top: var(--space-4);
+  }
+
+  .page-home .hero-visual {
+    justify-self: start;
+    margin-top: -1.5rem;
+  }
 }
 
 /* Sun / moon theme toggle */
