@@ -277,3 +277,275 @@ if (contactForm) {
   contactForm.noValidate = true;
   fieldset.disabled = false;
 }
+
+// Article table of contents
+function initArticleNavigation() {
+  const toc = document.querySelector(".page-article .article-toc");
+
+  if (!toc || toc.dataset.initialized) return;
+  toc.dataset.initialized = "true";
+
+  const links = [...toc.querySelectorAll('a[href^="#"]')];
+  const items = links
+    .map((link) => ({
+      link,
+      section: document.getElementById(link.hash.slice(1)),
+    }))
+    .filter((item) => item.section);
+
+  if (!items.length) return;
+
+  const mobile = window.matchMedia("(max-width: 700px)");
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  // Desktop starts expanded; mobile starts collapsed.
+  const updateLayout = () => {
+    toc.open = !mobile.matches;
+  };
+
+  updateLayout();
+  mobile.addEventListener("change", updateLayout);
+
+  function setActive(activeLink) {
+    items.forEach(({ link }) => {
+      if (link === activeLink) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function updateActiveSection() {
+    // Matches the section's CSS scroll offset.
+    const offset =
+      parseFloat(getComputedStyle(items[0].section).scrollMarginTop) || 100;
+
+    let active = items[0];
+
+    for (const item of items) {
+      if (item.section.getBoundingClientRect().top <= offset + 24) {
+        active = item;
+      }
+    }
+
+    // Ensure the conclusion becomes active at the bottom of the page.
+    const atBottom =
+      window.scrollY + window.innerHeight >=
+      document.documentElement.scrollHeight - 4;
+
+    if (atBottom) active = items[items.length - 1];
+
+    setActive(active.link);
+  }
+
+  items.forEach(({ link, section }) => {
+    link.addEventListener("click", (event) => {
+      // Preserve normal browser behaviour for modified clicks.
+      if (
+        event.ctrlKey ||
+        event.metaKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+
+      if (mobile.matches) toc.open = false;
+
+      if (window.location.hash !== link.hash) {
+        history.pushState(null, "", link.hash);
+      }
+
+      // Make the destination accessible to keyboard and screen-reader users.
+      if (!section.hasAttribute("tabindex")) {
+        section.setAttribute("tabindex", "-1");
+      }
+
+      section.focus({ preventScroll: true });
+
+      section.scrollIntoView({
+        behavior: reducedMotion.matches ? "instant" : "smooth",
+        block: "start",
+      });
+
+      setActive(link);
+    });
+  });
+
+  // Limit scroll updates to one per animation frame.
+  let scheduled = false;
+
+  function scheduleUpdate() {
+    if (scheduled) return;
+    scheduled = true;
+
+    requestAnimationFrame(() => {
+      updateActiveSection();
+      scheduled = false;
+    });
+  }
+
+  window.addEventListener("scroll", scheduleUpdate, { passive: true });
+  window.addEventListener("resize", scheduleUpdate);
+  window.addEventListener("hashchange", scheduleUpdate);
+  window.addEventListener("load", scheduleUpdate);
+  toc.addEventListener("toggle", scheduleUpdate);
+
+  updateActiveSection();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initArticleNavigation);
+} else {
+  initArticleNavigation();
+}
+
+/* =========================
+   LIVE GITHUB REPOSITORIES
+   ========================= */
+
+const githubRepos = document.querySelector("#github-repos");
+const githubStatus = document.querySelector("#github-status");
+const githubRetry = document.querySelector("#github-retry");
+
+if (githubRepos && githubStatus && githubRetry) {
+  const username = "Jeshurun-coder";
+  let isLoading = false;
+
+  function createRepoCard(repo) {
+    const card = document.createElement("article");
+    card.className = "github-card";
+
+    const heading = document.createElement("h3");
+    heading.textContent = repo.name;
+
+    const description = document.createElement("p");
+    description.textContent =
+      repo.description || "No description added to this repository yet.";
+
+    const language = document.createElement("p");
+    language.className = "github-meta";
+    language.textContent = repo.language
+      ? `Main language: ${repo.language}`
+      : "Main language: Not specified";
+
+    const link = document.createElement("a");
+    link.className = "text-link";
+
+    // Construct a GitHub URL using encoded path segments.
+    link.href =
+      `https://github.com/${encodeURIComponent(username)}/` +
+      encodeURIComponent(repo.name);
+
+    link.textContent = "View repository →";
+    link.setAttribute("aria-label", `View ${repo.name} on GitHub`);
+
+    // textContent displays API data as text, rather than interpreting HTML.
+    card.append(heading, description, language, link);
+
+    return card;
+  }
+
+  async function loadGithubRepos() {
+    if (isLoading) return;
+
+    isLoading = true;
+    githubRetry.disabled = true;
+    githubStatus.textContent = "Loading repositories…";
+    githubRepos.setAttribute("aria-busy", "true");
+    githubRepos.replaceChildren();
+
+    const controller = new AbortController();
+
+    // Stop waiting if GitHub takes longer than 12 seconds.
+    const timeoutId = window.setTimeout(() => {
+      controller.abort();
+    }, 12000);
+
+    let loadedSuccessfully = false;
+
+    try {
+      const response = await fetch(
+        `https://api.github.com/users/${encodeURIComponent(username)}` +
+          "/repos?sort=updated&direction=desc&per_page=6",
+        {
+          headers: {
+            Accept: "application/vnd.github+json"
+          },
+          signal: controller.signal
+        }
+      );
+
+      // fetch does not automatically throw for HTTP errors.
+      if (!response.ok) {
+        let message = "GitHub is unavailable. Please try again.";
+
+        if (response.status === 403 || response.status === 429) {
+          message =
+            "GitHub has temporarily restricted requests. " +
+            "Please try again later or use the profile link below.";
+        } else if (response.status === 404) {
+          message = "The GitHub account could not be found.";
+        }
+
+        throw new Error(message);
+      }
+
+      const repositories = await response.json();
+
+      if (
+        !Array.isArray(repositories) ||
+        !repositories.every(
+          (repo) => repo && typeof repo.name === "string"
+        )
+      ) {
+        throw new Error("GitHub returned unexpected data. Please try again.");
+      }
+
+      const cards = document.createDocumentFragment();
+
+      repositories.forEach((repo) => {
+        cards.appendChild(createRepoCard(repo));
+      });
+
+      githubRepos.appendChild(cards);
+
+      githubStatus.textContent = repositories.length
+        ? `${repositories.length} repositories loaded.`
+        : "No public repositories are available yet.";
+
+      loadedSuccessfully = true;
+    } catch (error) {
+      if (error.name === "AbortError") {
+        githubStatus.textContent =
+          "The request took too long. Please try again.";
+      } else if (error instanceof TypeError) {
+        githubStatus.textContent =
+          "Could not connect to GitHub. Check your connection and try again.";
+      } else {
+        githubStatus.textContent = error.message;
+      }
+    } finally {
+      window.clearTimeout(timeoutId);
+      githubRepos.setAttribute("aria-busy", "false");
+      githubRetry.disabled = false;
+      isLoading = false;
+
+      // Keep keyboard focus usable after a successful retry.
+      if (loadedSuccessfully && document.activeElement === githubRetry) {
+        githubStatus.tabIndex = -1;
+        githubStatus.focus();
+      }
+
+      githubRetry.hidden = loadedSuccessfully;
+    }
+  }
+
+  githubRetry.addEventListener("click", loadGithubRepos);
+  loadGithubRepos();
+}
