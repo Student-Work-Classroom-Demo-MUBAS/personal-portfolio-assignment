@@ -21,7 +21,7 @@ This draft records decisions visible in the current code. Alternatives, reasons 
 
 - **Hosting:** select and verify the actual platform, deployment URL and base path. Check custom 404 routing there.
 - **Form delivery:** choose whether to connect a service; if used, record the provider, reasons, alternatives and trade-offs. The current form does not send messages.
-- **Design tokens:** settle the typography and spacing scales and implement shared properties.
+- **Design tokens:** shared typography and spacing properties are now implemented with the original values preserved. Review the scale during visual testing and mirror it in Figma.
 - **Project documentation:** choose the first three detailed case studies and record accurate individual contributions and test evidence.
 
 Do not backdate this document or describe proposed work as completed. Be prepared to explain each retained entry using the corresponding HTML, CSS or JavaScript.

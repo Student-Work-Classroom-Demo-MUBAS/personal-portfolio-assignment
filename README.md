@@ -59,7 +59,7 @@ docs/testing-checklist.md   Verification and submission evidence still to collec
 - The article body is approximately 490 words including its section headings; expand the actual prose beyond the required 500 words.
 - Contact submission has no delivery service. LinkedIn is shown as pending on the main pages.
 - The 404 page uses root-relative asset and navigation paths; verify these against the deployment base path.
-- Spacing and typography are not yet consolidated into CSS custom properties.
+- Spacing, font sizes and supporting colours now use shared CSS custom properties; the existing page-specific desktop-first overrides still need responsive review.
 - Deployment, Figma deliverables and browser-testing results are not verified by these documents.
 
 ## Documentation and verification

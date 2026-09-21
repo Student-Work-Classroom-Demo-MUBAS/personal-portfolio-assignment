@@ -75,7 +75,7 @@ The listed text pairs exceed the brief's 4.5:1 body-text target. Hover, disabled
 
 The current font stack is Segoe UI, Arial, sans-serif. Base body text is `1rem` with a `1.65` line height. Base heading sizes are `1.75rem` for h1 and `1.375rem` for h2/h3, with page-specific and responsive overrides. Smaller labels include `0.8125rem`, `0.875rem` and `0.9375rem`; some headings use fluid `clamp()` sizes.
 
-Proposed shared type scale: 0.8125, 0.875, 1, 1.125, 1.375, 1.75 and 2.25rem, retaining fluid hero sizes where needed. Proposed spacing scale: 0.25, 0.5, 0.75, 1, 1.5, 2, 3 and 4rem. These are consolidation targets, not existing shared tokens. Define named CSS properties and equivalent Figma variables before claiming this requirement is complete.
+Font sizes now use shared `--font-size-*` properties, including named fluid sizes for page headings. Margin, padding, scroll offsets and gaps use `--space-*` properties. The tokens preserve the original values and units to avoid changing the layout during this refactor; zero and automatic spacing remain literal CSS keywords/values. Supporting surface, illustration, error and shadow colours also use properties. Mirror the implemented values in Figma, and consider reducing the number of closely spaced sizes after visual testing.
 
 ## Component states
 
