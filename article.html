@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Explore how artificial intelligence enhances embedded systems,
+    including key applications, implementation challenges and practical learning."
+  >
+
+  <title>AI in Embedded Systems | Uchindami Mkandawire</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="page-article">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Shared site header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a
+        class="site-logo"
+        href="index.html"
+        aria-label="Uchindami — Home"
+      >
+        UCHINDAMI
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        hidden
+      >
+        Menu <span aria-hidden="true">☰</span>
+      </button>
+
+      <nav
+        id="primary-navigation"
+        class="site-nav"
+        aria-label="Main navigation"
+      >
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="article.html" aria-current="page">Article</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Dark mode"
+        aria-pressed="false"
+        hidden
+      >
+        <span class="theme-toggle-thumb" aria-hidden="true">
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+            <path
+              d="M12 2v2m0 16v2M2 12h2m16 0h2
+                 M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42
+                 M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            ></path>
+          </svg>
+
+          <svg
+            class="theme-icon-moon"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M20.9 13.2A9 9 0 0 1 10.8 3.1
+                 9 9 0 1 0 20.9 13.2Z"
+            ></path>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <article class="technical-article" aria-labelledby="article-title">
+
+      <!-- Article introduction -->
+      <header class="article-hero section">
+        <div class="container article-hero-layout">
+          <div class="article-hero-content">
+            <p class="eyebrow">Article</p>
+
+            <h1 id="article-title">
+              Artificial Intelligence in
+              <span class="text-accent">Embedded Systems</span>
+            </h1>
+
+            <p class="article-summary">
+              Exploring how AI techniques enhance the capabilities of
+              embedded systems and the opportunities they provide for
+              practical engineering applications.
+            </p>
+
+            <ul class="article-meta" aria-label="Article information">
+              <li>
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                  <path d="M16 3v4M8 3v4M4 11h16M8 15h2M14 15h2M8 18h2"></path>
+                </svg>
+                <time datetime="2026-09-20">20 Sep 2026</time>
+              </li>
+
+              <li>
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M3 3h9l9 9-9 9-9-9V3Z"></path>
+                  <circle cx="8" cy="8" r="1"></circle>
+                </svg>
+                <span>Embedded Systems, AI</span>
+              </li>
+
+              <li>
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M12 7v5h4"></path>
+                </svg>
+                <span>6 min read</span>
+              </li>
+            </ul>
+          </div>
+
+          <figure class="article-hero-visual">
+            <!-- Add your article image at this path. -->
+            <img
+              class="article-hero-image"
+              src="assets/images/ai-embedded-systems.jpg"
+              alt="Illustration of an AI processor on a blue circuit board"
+              width="640"
+              height="480"
+              fetchpriority="high"
+            >
+            <figcaption class="article-visual-caption">
+              Smarter Systems.<br>
+              Real Impact.
+            </figcaption>
+          </figure>
+        </div>
+      </header>
+
+      <div class="container article-layout">
+
+        <!-- Table of contents; collapsible without JavaScript -->
+        <aside class="article-sidebar" aria-label="Article contents">
+          <details class="article-toc" open>
+            <summary>On This Page</summary>
+
+            <nav aria-label="On this page">
+              <ol class="article-toc-list">
+                <li><a href="#introduction">Introduction</a></li>
+                <li>
+                  <a href="#ai-in-embedded-systems">
+                    AI in Embedded Systems
+                  </a>
+                </li>
+                <li><a href="#key-applications">Key Applications</a></li>
+                <li>
+                  <a href="#implementation-considerations">
+                    Implementation Considerations
+                  </a>
+                </li>
+                <li>
+                  <a href="#practical-learning">
+                    Practical Learning and Engineering Significance
+                  </a>
+                </li>
+                <li><a href="#conclusion">Conclusion</a></li>
+              </ol>
+            </nav>
+          </details>
+        </aside>
+
+        <!-- Article body -->
+        <div class="article-body">
+          <section
+            id="introduction"
+            class="article-section"
+            aria-labelledby="introduction-heading"
+          >
+            <h2 id="introduction-heading">
+              <span class="article-section-number">1.</span>
+              Introduction
+            </h2>
+
+            <p>
+              The advancement of embedded systems has significantly
+              influenced the development of modern electronic and
+              computing applications. Embedded systems are specialised
+              computing systems designed to perform dedicated functions
+              within larger electrical, mechanical or communication
+              systems.
+            </p>
+
+            <p>
+              Traditionally, most embedded systems have relied on
+              predefined rules and fixed thresholds to make decisions.
+              Although such approaches are effective for relatively
+              simple and predictable systems, they may become inadequate
+              when system behaviour depends on several interacting
+              variables or when operating conditions change over time.
+            </p>
+
+            <p>
+              Artificial intelligence offers an opportunity to extend
+              the capabilities of embedded systems by allowing them to
+              analyse data, identify patterns and make more informed
+              decisions. This creates intelligent embedded systems that
+              are not only capable of sensing and controlling physical
+              processes but can also interpret the information collected
+              from those processes.
+            </p>
+          </section>
+
+          <section
+            id="ai-in-embedded-systems"
+            class="article-section"
+            aria-labelledby="embedded-ai-heading"
+          >
+            <h2 id="embedded-ai-heading">
+              <span class="article-section-number">2.</span>
+              AI in Embedded Systems
+            </h2>
+
+            <p>
+              Artificial intelligence can be applied to embedded systems
+              in several ways, depending on the purpose of the system
+              and the available hardware resources. Techniques such as
+              machine learning, fuzzy logic, pattern recognition and
+              predictive modelling enable embedded devices to analyse
+              data and make decisions based on observed behaviour.
+            </p>
+
+            <p>
+              Instead of relying entirely on fixed rules, a system can
+              use a model trained on examples to recognise patterns in
+              new sensor readings. Training often takes place on a more
+              powerful computer, while the embedded device runs the
+              trained model to produce predictions. Adapting the model
+              over time may require retraining and deploying an update.
+            </p>
+          </section>
+
+          <section
+            id="key-applications"
+            class="article-section"
+            aria-labelledby="applications-heading"
+          >
+            <h2 id="applications-heading">
+              <span class="article-section-number">3.</span>
+              Key Applications
+            </h2>
+
+            <p>
+              One major application of AI in embedded systems is
+              classification, where sensor data is analysed and assigned
+              to a particular category. For example, vibration readings
+              might help classify a machine’s operating condition.
+              AI is also used in anomaly detection, allowing a system
+              to identify behaviour that differs from normal operation.
+            </p>
+
+            <p>
+              Predictive modelling enables embedded devices to estimate
+              future behaviour, such as equipment failure or energy
+              demand. These predictions can support maintenance planning
+              and more efficient use of resources.
+            </p>
+
+            <p>
+              AI can also support sensor fusion by combining information
+              from multiple sensors to provide a more reliable
+              interpretation of the environment. Fuzzy logic is useful
+              when decisions involve gradual categories, such as
+              “slightly warm” or “very dry”, rather than sharply
+              separated conditions.
+            </p>
+          </section>
+
+          <section
+            id="implementation-considerations"
+            class="article-section"
+            aria-labelledby="implementation-heading"
+          >
+            <h2 id="implementation-heading">
+              <span class="article-section-number">4.</span>
+              Implementation Considerations
+            </h2>
+
+            <p>
+              The implementation of AI in embedded systems presents
+              engineering challenges. Microcontrollers generally have
+              limited processing capability, memory and power compared
+              with desktop computers or cloud servers. As a result,
+              large and complex models are not always suitable for
+              direct deployment.
+            </p>
+
+            <p>
+              Lightweight techniques such as decision trees, small
+              neural networks and models designed for TinyML
+              applications are often more appropriate. Model selection
+              should consider prediction accuracy, memory usage,
+              response time and energy consumption.
+            </p>
+
+            <p>
+              In some applications, the embedded device can collect and
+              transmit sensor data while AI processing is performed on
+              a backend server. This provides access to more computing
+              resources, but introduces dependence on network
+              connectivity and additional communication delays.
+            </p>
+
+            <p>
+              Reliable operation also depends on representative training
+              data, sensor quality and testing under realistic
+              conditions. Systems that control physical equipment should
+              include suitable safeguards and defined behaviour when
+              readings are missing or predictions are uncertain.
+            </p>
+          </section>
+
+          <section
+            id="practical-learning"
+            class="article-section"
+            aria-labelledby="learning-heading"
+          >
+            <h2 id="learning-heading">
+              <span class="article-section-number">5.</span>
+              Practical Learning and Engineering Significance
+            </h2>
+
+            <p>
+              The study of AI in embedded systems provides an opportunity
+              to apply knowledge from machine learning, computational
+              intelligence, programming and electronics in a practical
+              environment.
+            </p>
+
+            <p>
+              Developing an intelligent embedded system involves
+              collecting real sensor data, selecting appropriate inputs,
+              training or designing a model, testing its performance and
+              integrating it with hardware. This hands-on experience
+              connects theoretical concepts with the constraints of
+              real engineering systems.
+            </p>
+
+            <p>
+              A useful learning project could compare a fixed-threshold
+              monitoring system with a model-based approach. Evaluating
+              both on unseen data can reveal whether the added
+              complexity improves performance enough to justify its
+              memory, power and maintenance costs.
+            </p>
+          </section>
+
+          <section
+            id="conclusion"
+            class="article-section"
+            aria-labelledby="conclusion-heading"
+          >
+            <h2 id="conclusion-heading">
+              <span class="article-section-number">6.</span>
+              Conclusion
+            </h2>
+
+            <p>
+              Artificial intelligence expands what embedded systems can
+              do by enabling them to interpret sensor data, recognise
+              patterns and support more informed decisions. Applications
+              such as anomaly detection, predictive maintenance and
+              sensor fusion demonstrate its practical value.
+            </p>
+
+            <p>
+              Successful implementation requires a balance between
+              intelligence and engineering constraints. By choosing
+              suitable models, testing with realistic data and designing
+              for reliable operation, engineers can build embedded
+              systems that provide useful improvements in real-world
+              applications.
+            </p>
+          </section>
+
+          <div class="article-end">
+            <a class="text-link" href="#article-title">
+              Back to top <span aria-hidden="true">↑</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Shared site footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-identity">
+        <p class="footer-name">Uchindami Mkandawire</p>
+        <p>Computer Engineering portfolio</p>
+      </div>
+
+      <nav class="social-links" aria-label="Footer social and contact links">
+        <a href="https://github.com/Jeshurun-coder" aria-label="GitHub profile">
+          <img src="assets/icons/github.svg" alt="" width="20" height="20">
+        </a>
+        <span class="social-link-pending" role="img" aria-label="LinkedIn profile coming soon" title="LinkedIn profile coming soon">
+          <img src="assets/icons/linkedin.svg" alt="" width="20" height="20">
+        </span>
+        <a href="mailto:uchixy2005@gmail.com" aria-label="Email Uchindami">
+          <img src="assets/icons/email.svg" alt="" width="20" height="20">
+        </a>
+      </nav>
+
+      <p class="footer-copyright">
+        <small>&copy; 2026 Uchindami Mkandawire</small>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
