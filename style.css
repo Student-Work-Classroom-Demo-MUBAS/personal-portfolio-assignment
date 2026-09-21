@@ -2838,17 +2838,10 @@ a.contact-method:focus-visible {
   );
 
   clip-path: polygon(
-<<<<<<< HEAD
-    20% 0,
-    100% 0,
-    85% 100%,
-    0 100%
-=======
     25% 0,
     100% 0,
     76% 100%,
     0 93%
->>>>>>> feature/css
   );
 }
 
