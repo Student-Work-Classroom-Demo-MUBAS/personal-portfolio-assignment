@@ -50,7 +50,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="article.html" aria-current="page">Article</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
 
@@ -161,21 +161,22 @@
                   <circle cx="12" cy="12" r="9"></circle>
                   <path d="M12 7v5h4"></path>
                 </svg>
-                <span>6 min read</span>
+                <span>3 min read</span>
               </li>
             </ul>
           </div>
 
           <figure class="article-hero-visual">
-            <!-- Add your article image at this path. -->
+            <div class="article-hero-image-frame">
             <img
               class="article-hero-image"
-              src="assets/images/ai-embedded-systems.jpg"
+              src="assets/images/ai.jpg"
               alt="Illustration of an AI processor on a blue circuit board"
-              width="640"
-              height="480"
+              width="764"
+              height="401"
               fetchpriority="high"
             >
+            </div>
             <figcaption class="article-visual-caption">
               Smarter Systems.<br>
               Real Impact.
@@ -229,31 +230,11 @@
             </h2>
 
             <p>
-              The advancement of embedded systems has significantly
-              influenced the development of modern electronic and
-              computing applications. Embedded systems are specialised
-              computing systems designed to perform dedicated functions
-              within larger electrical, mechanical or communication
-              systems.
+              Embedded systems are specialised computers designed to perform specific tasks within larger devices. They monitor sensors, control equipment and support applications ranging from household appliances to industrial machinery.
             </p>
 
             <p>
-              Traditionally, most embedded systems have relied on
-              predefined rules and fixed thresholds to make decisions.
-              Although such approaches are effective for relatively
-              simple and predictable systems, they may become inadequate
-              when system behaviour depends on several interacting
-              variables or when operating conditions change over time.
-            </p>
-
-            <p>
-              Artificial intelligence offers an opportunity to extend
-              the capabilities of embedded systems by allowing them to
-              analyse data, identify patterns and make more informed
-              decisions. This creates intelligent embedded systems that
-              are not only capable of sensing and controlling physical
-              processes but can also interpret the information collected
-              from those processes.
+              Traditional embedded systems often make decisions using fixed rules and thresholds. These approaches are efficient and predictable, but become less effective when several variables interact or operating conditions change. Artificial intelligence can help devices interpret sensor data, recognise patterns and respond more appropriately to complex situations.
             </p>
           </section>
 
@@ -268,21 +249,11 @@
             </h2>
 
             <p>
-              Artificial intelligence can be applied to embedded systems
-              in several ways, depending on the purpose of the system
-              and the available hardware resources. Techniques such as
-              machine learning, fuzzy logic, pattern recognition and
-              predictive modelling enable embedded devices to analyse
-              data and make decisions based on observed behaviour.
+              AI techniques used in embedded systems include machine learning, fuzzy logic and pattern recognition. Rather than relying entirely on manually defined rules, a device can use a trained model to classify measurements or estimate an outcome.
             </p>
 
             <p>
-              Instead of relying entirely on fixed rules, a system can
-              use a model trained on examples to recognise patterns in
-              new sensor readings. Training often takes place on a more
-              powerful computer, while the embedded device runs the
-              trained model to produce predictions. Adapting the model
-              over time may require retraining and deploying an update.
+              Training usually happens on a more powerful computer. The embedded device then runs the model, a process called inference. Updating its behaviour may require retraining and deploying a revised model. The best approach depends on the task, available hardware and required reliability.
             </p>
           </section>
 
@@ -297,28 +268,11 @@
             </h2>
 
             <p>
-              One major application of AI in embedded systems is
-              classification, where sensor data is analysed and assigned
-              to a particular category. For example, vibration readings
-              might help classify a machine’s operating condition.
-              AI is also used in anomaly detection, allowing a system
-              to identify behaviour that differs from normal operation.
+              Classification assigns sensor readings to categories. For example, vibration measurements can help distinguish normal machine operation from a developing fault. Anomaly detection identifies unusual behaviour that may require investigation.
             </p>
 
             <p>
-              Predictive modelling enables embedded devices to estimate
-              future behaviour, such as equipment failure or energy
-              demand. These predictions can support maintenance planning
-              and more efficient use of resources.
-            </p>
-
-            <p>
-              AI can also support sensor fusion by combining information
-              from multiple sensors to provide a more reliable
-              interpretation of the environment. Fuzzy logic is useful
-              when decisions involve gradual categories, such as
-              “slightly warm” or “very dry”, rather than sharply
-              separated conditions.
+              Predictive models estimate outcomes such as equipment failure or energy demand, supporting maintenance and resource planning. Sensor fusion combines measurements from several sensors to improve understanding of the environment. Fuzzy logic supports gradual decisions, such as adjusting irrigation when soil is moderately dry rather than using a single threshold.
             </p>
           </section>
 
@@ -333,36 +287,15 @@
             </h2>
 
             <p>
-              The implementation of AI in embedded systems presents
-              engineering challenges. Microcontrollers generally have
-              limited processing capability, memory and power compared
-              with desktop computers or cloud servers. As a result,
-              large and complex models are not always suitable for
-              direct deployment.
+              Microcontrollers have limited memory, processing capacity and power. A model that performs well on a laptop may be unsuitable for a small device. Decision trees, compact neural networks and TinyML approaches can reduce these demands.
             </p>
 
             <p>
-              Lightweight techniques such as decision trees, small
-              neural networks and models designed for TinyML
-              applications are often more appropriate. Model selection
-              should consider prediction accuracy, memory usage,
-              response time and energy consumption.
+              Engineers must balance accuracy with memory use, response time and energy consumption. Processing data on a backend server offers more computing power, but introduces network dependence and communication delays.
             </p>
 
             <p>
-              In some applications, the embedded device can collect and
-              transmit sensor data while AI processing is performed on
-              a backend server. This provides access to more computing
-              resources, but introduces dependence on network
-              connectivity and additional communication delays.
-            </p>
-
-            <p>
-              Reliable operation also depends on representative training
-              data, sensor quality and testing under realistic
-              conditions. Systems that control physical equipment should
-              include suitable safeguards and defined behaviour when
-              readings are missing or predictions are uncertain.
+              Reliable results also require representative training data, suitable sensors and testing under realistic conditions. Systems controlling physical equipment need safeguards and defined responses to missing readings or uncertain predictions.
             </p>
           </section>
 
@@ -377,27 +310,11 @@
             </h2>
 
             <p>
-              The study of AI in embedded systems provides an opportunity
-              to apply knowledge from machine learning, computational
-              intelligence, programming and electronics in a practical
-              environment.
+              Combining AI with embedded hardware connects programming, electronics and data analysis. A practical project involves collecting sensor readings, preparing data, choosing a model and checking its performance before integrating it with the device.
             </p>
 
             <p>
-              Developing an intelligent embedded system involves
-              collecting real sensor data, selecting appropriate inputs,
-              training or designing a model, testing its performance and
-              integrating it with hardware. This hands-on experience
-              connects theoretical concepts with the constraints of
-              real engineering systems.
-            </p>
-
-            <p>
-              A useful learning project could compare a fixed-threshold
-              monitoring system with a model-based approach. Evaluating
-              both on unseen data can reveal whether the added
-              complexity improves performance enough to justify its
-              memory, power and maintenance costs.
+              One useful experiment compares a fixed-threshold monitoring system with a trained model. Both should be evaluated on data that was not used during development. Compare accuracy, response time, memory requirements and power consumption. This shows whether AI provides enough benefit to justify the additional complexity and maintenance.
             </p>
           </section>
 
@@ -412,20 +329,11 @@
             </h2>
 
             <p>
-              Artificial intelligence expands what embedded systems can
-              do by enabling them to interpret sensor data, recognise
-              patterns and support more informed decisions. Applications
-              such as anomaly detection, predictive maintenance and
-              sensor fusion demonstrate its practical value.
+              AI can extend embedded systems beyond basic sensing and control, enabling classification, anomaly detection and more informed decisions. Its value depends on solving a specific problem rather than adding complexity for its own sake.
             </p>
 
             <p>
-              Successful implementation requires a balance between
-              intelligence and engineering constraints. By choosing
-              suitable models, testing with realistic data and designing
-              for reliable operation, engineers can build embedded
-              systems that provide useful improvements in real-world
-              applications.
+              Successful designs match the model to the hardware, use realistic data and prioritise dependable operation. Careful testing helps engineers decide when AI is useful and when simpler rules remain the better solution.
             </p>
           </section>
 
@@ -443,8 +351,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-identity">
-        <p class="footer-name">Uchindami Mkandawire</p>
-        <p>Computer Engineering portfolio</p>
+        <p class="footer-name">Uchindami @2026</p>
       </div>
 
       <nav class="social-links" aria-label="Footer social and contact links">

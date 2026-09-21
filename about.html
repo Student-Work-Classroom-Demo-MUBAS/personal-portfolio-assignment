@@ -13,6 +13,7 @@
 
   <title>About | Uchindami Mkandawire</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -43,7 +44,7 @@
           <li><a href="about.html" aria-current="page">About</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="article.html">Article</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
 
@@ -105,20 +106,7 @@
             I learn best by building systems that solve real needs.
           </p>
 
-          <div class="hero-actions">
-            <!-- Add your CV at this path before publishing. -->
-            <a
-              class="button button-primary"
-              href="assets/documents/uchindami-mkandawire-cv.pdf"
-              download
-            >
-              Download CV <span class="file-type">(PDF)</span>
-            </a>
 
-            <a class="button button-secondary" href="contact.html">
-              Contact Me <span aria-hidden="true">→</span>
-            </a>
-          </div>
 
           <nav class="social-links" aria-label="Social and contact links">
             <span
@@ -159,6 +147,21 @@
               >
             </a>
           </nav>
+
+          <div class="hero-actions">
+            <!-- Add your CV at this path before publishing. -->
+            <a
+              class="button button-primary"
+              href="assets/documents/uchindami-mkandawire-cv.pdf"
+              download
+            >
+              Download CV <span class="file-type">(PDF)</span>
+            </a>
+
+            <a class="button button-secondary" href="index.html#contact">
+              Contact Me <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
 
         <div class="about-hero-visual">
@@ -211,7 +214,7 @@
 
         <ol class="approach-grid">
           <li class="approach-card">
-            <span class="approach-icon" aria-hidden="true">◎</span>
+            <img class="approach-image" src="assets/images/understanding%20the%20problem.jpg" alt="" width="1400" height="933" loading="lazy">
             <span class="approach-number" aria-hidden="true">01</span>
 
             <div class="approach-content">
@@ -224,7 +227,7 @@
           </li>
 
           <li class="approach-card">
-            <span class="approach-icon" aria-hidden="true">&lt;/&gt;</span>
+            <img class="approach-image" src="assets/images/build.jpg" alt="" width="612" height="427" loading="lazy">
             <span class="approach-number" aria-hidden="true">02</span>
 
             <div class="approach-content">
@@ -237,7 +240,7 @@
           </li>
 
           <li class="approach-card">
-            <span class="approach-icon" aria-hidden="true">↗</span>
+            <img class="approach-image" src="assets/images/improve.jpg" alt="" width="980" height="980" loading="lazy">
             <span class="approach-number" aria-hidden="true">03</span>
 
             <div class="approach-content">
@@ -255,49 +258,52 @@
     <!-- Skills and tools -->
     <section class="about-technologies section" aria-labelledby="technologies-heading">
       <div class="container">
-        <header class="section-heading section-heading-row">
-          <div>
-            <p class="eyebrow">Skills and Tools</p>
-            <h2 id="technologies-heading">Technologies I work with</h2>
-          </div>
-
+        <header class="section-heading">
+          <h2 id="technologies-heading">Technical Skills</h2>
+          <p class="technology-subtitle">Technologies I use across embedded systems, web development, databases and software projects.</p>
         </header>
-
-        <div class="technology-grid">
+        <p class="technology-scroll-hint">Swipe or scroll horizontally to explore all skills.</p>
+        <div class="technology-grid" tabindex="0" role="region" aria-label="Technical skills, scroll horizontally to explore">
           <article class="technology-card">
-            <span class="technology-icon" aria-hidden="true">&lt;/&gt;</span>
+            <span class="technology-icon" aria-hidden="true"><i class="devicon-html5-plain"></i></span>
             <h3>HTML &amp; CSS</h3>
-            <p>Semantic, accessible and responsive interfaces.</p>
+            <p class="technology-capability">Frontend Development</p>
+            <p>Responsive interfaces, dashboard layouts, semantic HTML, CSS Grid and Flexbox.</p>
           </article>
 
           <article class="technology-card">
-            <span class="technology-icon" aria-hidden="true">JS</span>
+            <span class="technology-icon" aria-hidden="true"><i class="devicon-javascript-plain"></i></span>
             <h3>JavaScript</h3>
-            <p>Interactive browser experiences and APIs.</p>
+            <p class="technology-capability">Web Interactivity</p>
+            <p>DOM manipulation, form handling, dynamic interfaces and REST API integration.</p>
           </article>
 
           <article class="technology-card">
-            <span class="technology-icon" aria-hidden="true">Py</span>
+            <span class="technology-icon" aria-hidden="true"><i class="devicon-python-plain"></i></span>
             <h3>Python</h3>
-            <p>Data analysis and intelligent applications.</p>
+            <p class="technology-capability">Backend &amp; Data</p>
+            <p>Backend development, REST APIs, data processing and intelligent application logic.</p>
           </article>
 
           <article class="technology-card">
-            <span class="technology-icon" aria-hidden="true">C++</span>
+            <span class="technology-icon" aria-hidden="true"><i class="devicon-cplusplus-plain"></i></span>
             <h3>C &amp; C++</h3>
-            <p>Embedded systems and hardware programming.</p>
+            <p class="technology-capability">Embedded Development</p>
+            <p>Microcontroller programming, sensor interfacing, actuator control and embedded firmware.</p>
           </article>
 
           <article class="technology-card">
-            <span class="technology-icon" aria-hidden="true">SQL</span>
+            <span class="technology-icon" aria-hidden="true"><i class="devicon-postgresql-plain"></i></span>
             <h3>PostgreSQL</h3>
-            <p>Designing and working with relational databases.</p>
+            <p class="technology-capability">Database Development</p>
+            <p>Relational database design, SQL queries, schemas and application data management.</p>
           </article>
 
           <article class="technology-card">
-            <span class="technology-icon" aria-hidden="true">Git</span>
+            <span class="technology-icon" aria-hidden="true"><i class="devicon-git-plain"></i></span>
             <h3>Git &amp; GitHub</h3>
-            <p>Version control and collaboration.</p>
+            <p class="technology-capability">Development Workflow</p>
+            <p>Version control, branching, repository management and collaborative development.</p>
           </article>
         </div>
       </div>
@@ -313,18 +319,27 @@
 
         <div class="traits-grid">
           <article class="trait-card">
+            <img class="trait-image" src="assets/images/learner.png" alt="" width="644" height="406" loading="lazy">
+            <div class="trait-content">
             <h3>Continuous Learner</h3>
             <p>Always exploring new technologies and improving my skills.</p>
+            </div>
           </article>
 
           <article class="trait-card">
+            <img class="trait-image" src="assets/images/solver.png" alt="" width="343" height="398" loading="lazy">
+            <div class="trait-content">
             <h3>Problem Solver</h3>
             <p>Turning ideas into practical, real-world solutions.</p>
+            </div>
           </article>
 
           <article class="trait-card">
+            <img class="trait-image" src="assets/images/team%20player.jpg" alt="" width="739" height="415" loading="lazy">
+            <div class="trait-content">
             <h3>Team Player</h3>
             <p>Working together, sharing knowledge and supporting others.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -342,7 +357,7 @@
             </p>
           </div>
 
-          <a class="button button-primary" href="contact.html">
+          <a class="button button-primary" href="index.html#contact">
             Contact Me <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -354,8 +369,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-identity">
-        <p class="footer-name">Uchindami Mkandawire</p>
-        <p>Computer Engineering portfolio</p>
+        <p class="footer-name">Uchindami @2026</p>
       </div>
 
       <nav class="social-links" aria-label="Footer social and contact links">

@@ -71,7 +71,8 @@ const menuToggle = document.querySelector(".menu-toggle");
 const navigation = document.querySelector("#primary-navigation");
 
 // This breakpoint must match the mobile navigation breakpoint in your CSS.
-const mobileScreen = window.matchMedia("(max-width: 700px)");
+const mobileLayoutQuery = "(width < 768px)";
+const mobileScreen = window.matchMedia(mobileLayoutQuery);
 
 if (menuToggle && navigation) {
   function setMenuOpen(isOpen, restoreFocus = false) {
@@ -295,7 +296,7 @@ function initArticleNavigation() {
 
   if (!items.length) return;
 
-  const mobile = window.matchMedia("(max-width: 700px)");
+  const mobile = window.matchMedia(mobileLayoutQuery);
   const reducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   );
@@ -573,11 +574,13 @@ if (projectFilters && projectList) {
   );
 
   // Announce results to screen-reader users.
-  const filterStatus = document.createElement("p");
+  const filterStatus = document.querySelector("#project-filter-status") || document.createElement("p");
   filterStatus.className = "visually-hidden";
   filterStatus.setAttribute("role", "status");
   filterStatus.setAttribute("aria-atomic", "true");
-  projectList.insertAdjacentElement("beforebegin", filterStatus);
+  if (!filterStatus.isConnected) {
+    projectList.insertAdjacentElement("beforebegin", filterStatus);
+  }
 
   function filterProjects(selectedButton, announce = true) {
     const category = selectedButton.dataset.filter;
