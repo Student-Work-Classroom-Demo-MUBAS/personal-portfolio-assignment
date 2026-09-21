@@ -549,3 +549,91 @@ if (githubRepos && githubStatus && githubRetry) {
   githubRetry.addEventListener("click", loadGithubRepos);
   loadGithubRepos();
 }
+
+/* =========================
+   PROJECT FILTERS
+   ========================= */
+
+const projectFilters = document.querySelector(
+  ".page-projects .project-filters"
+);
+const projectList = document.querySelector("#project-list");
+
+if (projectFilters && projectList) {
+  const filterButtons = [
+    ...projectFilters.querySelectorAll(".filter-button")
+  ];
+
+  const projectCards = [
+    ...projectList.querySelectorAll(".project-card")
+  ];
+
+  const emptyState = document.querySelector(
+    ".page-projects .project-empty-state"
+  );
+
+  // Announce results to screen-reader users.
+  const filterStatus = document.createElement("p");
+  filterStatus.className = "visually-hidden";
+  filterStatus.setAttribute("role", "status");
+  filterStatus.setAttribute("aria-atomic", "true");
+  projectList.insertAdjacentElement("beforebegin", filterStatus);
+
+  function filterProjects(selectedButton, announce = true) {
+    const category = selectedButton.dataset.filter;
+    let visibleCount = 0;
+
+    projectCards.forEach((card) => {
+      const categories = (card.dataset.category || "")
+        .split(/\s+/)
+        .filter(Boolean);
+
+      const matches =
+        category === "all" || categories.includes(category);
+
+      card.hidden = !matches;
+
+      if (matches) {
+        visibleCount++;
+      }
+    });
+
+    filterButtons.forEach((button) => {
+      const isActive = button === selectedButton;
+
+      button.setAttribute("aria-pressed", String(isActive));
+      button.classList.toggle("is-active", isActive);
+      button.classList.toggle("button-primary", isActive);
+      button.classList.toggle("button-secondary", !isActive);
+    });
+
+    if (emptyState) {
+      emptyState.hidden = visibleCount !== 0;
+    }
+
+    if (announce) {
+      const label = selectedButton.textContent.trim();
+
+      filterStatus.textContent =
+        `${label}: ${visibleCount} ` +
+        `${visibleCount === 1 ? "project" : "projects"} shown.`;
+    }
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      filterProjects(button);
+    });
+
+    button.disabled = false;
+  });
+
+  const initialButton =
+    filterButtons.find(
+      (button) => button.getAttribute("aria-pressed") === "true"
+    ) || filterButtons[0];
+
+  if (initialButton) {
+    filterProjects(initialButton, false);
+  }
+}

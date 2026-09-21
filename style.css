@@ -3685,3 +3685,8 @@ a.contact-method:focus-visible {
     transition: none;
   }
 }
+
+.page-projects .project-card[hidden],
+.page-projects .project-empty-state[hidden] {
+  display: none !important;
+}
