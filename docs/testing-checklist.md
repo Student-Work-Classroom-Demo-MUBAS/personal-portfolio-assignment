@@ -1,55 +1,82 @@
-# Testing and submission checklist
+# Testing checklist
 
-Unchecked items are pending verification, not reported failures. Add real dates, URLs, browser versions, viewport sizes and evidence paths as checks are performed. Do not substitute this checklist for the screenshots required by the brief.
+This is the list of checks for the final website. The completed items below were checked in the code. Browser tests are still open unless a result is recorded.
 
-## Content and navigation
+## Content and links
 
-- [ ] Fix homepage `home.html` links.
-- [ ] Add at least three complete project case studies and resolve all five existing detail links.
-- [ ] Add the CV PDF and test downloads from Home and About.
-- [ ] Expand the technical article to at least 500 words of substantive prose.
-- [ ] Verify About-page statistics, skill proficiency descriptions and personal contributions.
-- [ ] Check every local link and image, including case-sensitive paths on the host.
-- [ ] Check 404 assets, navigation and actual missing-URL routing on the deployed site.
+- [x] Check that the homepage no longer links to `home.html`.
+- [x] Check that all five project pages exist.
+- [x] Add problem, contribution, tools and reflection sections to Griffin, Networking and Smart House.
+- [x] Update the three WebP image paths to `assets/images/`.
+- [x] Keep one project image on the Networking page.
+- [ ] Finish the Library Management and Smart Irrigation descriptions.
+- [ ] Review project contributions, results and About-page statistics for accuracy.
+- [ ] Add the CV PDF and try both download links.
+- [ ] Check that the article has at least 500 words of main text.
+- [ ] Fix the Griffin and Smart House Contact links to use `index.html#contact`.
+- [ ] Open every page and check its links and images on the live site.
+- [ ] Visit a missing URL and check the 404 page.
 
-## HTML, interactions and accessibility
+## Navigation and interactions
 
-- [ ] Run every final page through the W3C HTML validator and resolve reported errors.
-- [ ] Test keyboard-only navigation, skip links, focus visibility and focus order.
-- [ ] Test mobile menu open/close, Escape and resize behaviour.
-- [ ] Test theme persistence after reload and operation when storage is unavailable.
-- [ ] Check contact required, whitespace-only, malformed-email and length cases; confirm useful inline messages and first-error focus.
-- [ ] Confirm valid form input is not reported as delivered while no service is connected.
-- [ ] Check each project filter, status announcement and horizontally scrolling content.
-- [ ] Test article contents links, focus, mobile disclosure and reduced-motion behaviour.
-- [ ] Test GitHub success, empty data, offline/failure, timeout and retry states.
-- [ ] Inspect the browser console on every page; resolve errors and warnings.
-- [ ] Check rendered text contrast in both themes, including hover/error states, and non-text controls separately.
+- [ ] Use the site with only a keyboard and check the skip link and focus order.
+- [ ] Open and close the mobile menu, including with Escape.
+- [ ] Switch themes and reload to check that the choice is saved.
+- [ ] Check that the theme switch still works when browser storage is unavailable.
+- [ ] Try every project filter and check the results.
+- [ ] Check the article contents links and mobile disclosure.
+- [ ] Check horizontally scrolling sections with touch and keyboard.
+- [ ] Check reduced-motion behaviour.
+- [ ] Look for console errors on every page.
 
-## Responsive and performance evidence
+## Contact form
 
-- [ ] Capture screenshots showing all final pages at mobile and desktop sizes.
-- [ ] Test major breakpoints at 768, 1024 and 1200px, including just below each boundary, and save screenshots as proof.
-- [ ] Inspect narrow screens for clipped text, inaccessible controls and unintended page overflow.
-- [ ] Run Lighthouse on the finished deployed site. Aim for Performance 85+ and Accessibility, Best Practices and SEO 90+; save screenshots and record the tested URL and mode.
+- [ ] Submit empty fields and check the error messages.
+- [ ] Try spaces only, an invalid email address and text over the length limits.
+- [ ] Check that focus moves to the first invalid field.
+- [ ] Enter valid details and check that the message clearly says nothing was sent.
 
-| Check | Date / browser / viewport or audit mode | Actual result | Evidence path |
-| --- | --- | --- | --- |
-| HTML validation | Pending | Not run in documentation session | Pending |
-| Responsive layouts | Pending | Not run in documentation session | Pending |
-| Keyboard and focus | Pending | Not run in documentation session | Pending |
-| Live API states | Pending | Implementation inspected; browser checks pending | Pending |
-| Lighthouse | Pending | No scores recorded | Pending |
+## GitHub feed
 
-## Documentation and submission
+- [ ] Check that repositories load successfully.
+- [ ] Check the message for an empty result.
+- [ ] Test a failed request and an offline connection.
+- [ ] Test the timeout message and retry button.
 
-- [ ] Add verified live URL, Figma URL and homepage screenshot to README.
-- [ ] Complete per-asset credits and licences/permissions.
-- [ ] Review audience assumptions and decision-log rationales in your own words.
-- [ ] Complete the AI-use disclosure for the whole project.
-- [ ] Supply Figma wireframes, design system, desktop/mobile mockups and a clickable flow; preserve version history.
-- [ ] Verify at least three distinct work branches were merged through pull requests with descriptions. Existing local branches alone do not prove this.
-- [ ] Submit the required live and Figma links in Classroom and ensure the intended work is on `main` under the course's submission rules.
-- [ ] Practise explaining CSS and JavaScript line by line, making a small change and defending a design decision.
+## Layout and accessibility
 
-The brief states a deadline of 15 September 2026 at 11:59pm. This documentation is being prepared after that date; record any lecturer-approved extension or revised submission instructions rather than changing the original deadline or backdating work.
+- [ ] Check every page on mobile and desktop.
+- [ ] Test at 550, 768, 1024 and 1200 pixels, and just below each breakpoint.
+- [ ] Check for clipped text, stretched images and unwanted horizontal scrolling.
+- [ ] Check text and control contrast in both themes, including hover and error states.
+- [ ] Run each page through the W3C HTML validator and fix errors.
+- [ ] Save mobile and desktop screenshots.
+- [ ] Run Lighthouse on the deployed site and save the results. Targets: Performance 85+, Accessibility 90+, Best Practices 90+ and SEO 90+.
+
+## Test results
+
+Record the date, browser, screen size, result and screenshot location when each test is done.
+
+| Test | Result | Details or evidence |
+| --- | --- | --- |
+| Local file references | Some fixes still needed | CV is missing; Griffin and Smart House link to `contact.html` |
+| Networking image and local links | File targets checked | Cisco screenshot and linked local files exist |
+| HTML validation | Not run yet | — |
+| Mobile and desktop layouts | Final checks pending | — |
+| Keyboard navigation | Not tested yet | — |
+| Form and GitHub behaviour | Browser tests pending | — |
+| Lighthouse | Not run yet | — |
+
+The code checks above were made on 22 September 2026 using local `main` at `8a489c8`.
+
+## Before submission
+
+- [ ] Add the live website and Figma links to the README.
+- [ ] Add a homepage screenshot and complete the image credits.
+- [ ] Review the design notes, decision log and AI-use disclosure.
+- [ ] Finish the Figma wireframes, design system, mobile and desktop layouts, and clickable flow.
+- [ ] Check the required pull requests and their descriptions. Separate branches alone do not meet the pull-request requirement.
+- [ ] Make sure the final website is on `main` and submit the required links in Classroom.
+- [ ] Practise explaining the code and making a small change without assistance.
+
+The brief gives 15 September 2026 at 11:59pm as the deadline. Any agreed extension or revised submission instructions still need to be recorded.

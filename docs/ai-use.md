@@ -1,23 +1,61 @@
-# AI-use disclosure — draft for author review
+# AI-Use Disclosure
 
-## Tool and purpose
+I used OpenAI Codex as a development support tool while building my portfolio. Its use was mainly focused on technically challenging areas involving implementation, debugging, design refinement, and technical documentation.
 
-OpenAI Codex was used in the documentation session recorded here to review this portfolio against the assignment brief and draft supporting documentation. This note covers the assistance visible in that session. It is not a complete account of earlier development; the author must add any other AI use before submission.
+## Code Development and Debugging
 
-## What I asked
+Codex assisted with selected HTML, CSS, and JavaScript functionality, including:
 
-I asked Codex to check what I had not yet completed. I then requested a new `feature/reports` branch and clarified that I wanted documentation write-ups on that branch, rather than project case studies.
+- Implementing and saving the light/dark theme selection.
+- Developing responsive mobile navigation behaviour.
+- Implementing contact-form validation.
+- Fetching and displaying public repositories using the GitHub API.
+- Implementing project filtering by category.
+- Debugging the GitHub repository section when repository data was not appearing.
+- Resolving selected layout, responsive-design, and file-path issues.
 
-## How the output was used
+I reviewed the supplied code, integrated it into my existing project structure, tested the functionality, and requested changes where necessary to match my intended design and behaviour.
 
-Codex inspected the local HTML, CSS, JavaScript, assets, README and Git history, and read the assignment brief. It identified missing deliverables and broken local links. It then drafted an expanded README, design notes, a decision log, this disclosure and a testing checklist. The design notes include calculated contrast ratios for selected existing colour pairs.
+## Git and Development Workflow
 
-The documentation describes implemented features and marks missing URLs, credits and verification evidence. Decision-log rationales are retrospective draft explanations that need my review; they are not records of interviews, experiments or alternatives I can claim to have evaluated. AI-generated prose should be revised wherever it does not accurately reflect my own work or reasoning.
+Codex assisted with providing termical commands for:
 
-## Limits and personal review still required
+- Transferring specific files between Git branches without merging unrelated changes when i would end up accidentally working on a file in the wrong branch.
+- Diagnosing selected branch and file-status issues during development.
 
-This documentation work did not establish a deployed URL, verify a Figma file, run a browser accessibility audit or produce Lighthouse results. I still need to supply authentic screenshots, testing results and source credits, confirm the design decisions and ensure I can explain and modify the implementation myself.
+## Design Support
 
-Before submitting, add an honest account of any earlier AI-assisted coding, debugging, writing, image generation or image editing: the tool used, representative prompts, output retained, changes made and checks performed. In particular, confirm the origin of the portrait variants, illustrations, About text and technical article. Their presence in the repository does not establish how they were created.
+Codex and chat gpt provided assistance with selected design refinements, including:
 
-**Author completion:** TODO — review this note, add earlier AI use (or explicitly state none if accurate), and describe which suggestions were accepted, revised or rejected. Keep the final disclosure to approximately one page without omitting material assistance.
+- Light-theme styling.
+- Responsive layouts and spacing.
+- The 404 page.
+- Footer structure.
+- Individual project-page layouts.
+
+I made the final decisions regarding the appearance, structure, content, and layout of the portfolio.
+
+## Image Processing
+
+Codex assisted with:
+
+- Converting existing project images to WebP format by providing terminal cwebp commands.
+- Updating the corresponding image file paths in the website when i moved then to the images folder.
+
+The WebP conversion only changed the image format and did not generate the original images.
+
+## Technical Writing and Documentation
+
+Claude assisted with:
+
+- Drafting and refining selected technical content.
+- Developing an article discussing fuzzy logic and its possible application to the GRIFFIN project from prevous chats on how to add ai into griffin
+- Refining parts of the README and supporting project documentation.
+
+I reviewed and edited this material to ensure that it reflected my project and my understanding of the work.
+
+## Responsibility for the Final Work
+
+AI assistance was used as a development aid for selected technically challenging tasks rather than as a replacement for developing or understanding the portfolio.
+
+I made the final decisions regarding the portfolio's structure, design, content, functionality, and code included in the submission. I am responsible for understanding, explaining, testing, and modifying the work submitted.

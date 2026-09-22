@@ -1,27 +1,43 @@
 # Decision log
 
-This draft records decisions visible in the current code. Alternatives, reasons and trade-offs are retrospective explanations for the author to review, not a claim that these options were documented or evaluated at the time. Replace any rationale that does not reflect your thinking and add genuine dates or supporting commits where known.
+These notes explain the main choices in the current site and the changes made while improving it.
 
-| # | Decision reflected in the implementation | Alternative | Rationale to confirm | Trade-off |
-| --- | --- | --- | --- | --- |
-| 1 | Use separate Home, About, Projects and Article pages | One long scrolling page | Give each content type a focused URL and keep the homepage concise | Navigation and shared markup must remain consistent across files |
-| 2 | Use plain HTML, CSS and JavaScript | A frontend framework | Match the assignment and keep browser behaviour directly explainable | Shared components are copied manually; larger changes require more coordination |
-| 3 | Share one stylesheet and one JavaScript file | Separate assets for every page | Reuse visual rules and interaction logic throughout the portfolio | Page-specific rules can accumulate and require careful scoping |
-| 4 | Switch theme through CSS colour properties and save the preference | A temporary toggle or duplicated theme styles | Keep colours consistent and preserve the visitor's choice between visits | Storage may be unavailable, so persistence needs a fallback; both themes need testing |
-| 5 | Use Grid/Flexbox with responsive breakpoints | Fixed-width layouts | Adapt content groups and navigation to different screen widths | More layouts and cascade interactions must be checked; some rules still need mobile-first consolidation |
-| 6 | Add JavaScript field validation with inline errors and first-error focus | Browser-only validation | Explain how to correct each input and make errors easier to locate | Custom validation requires maintenance and would not replace server-side checks if delivery is added |
-| 7 | Fetch recent public repositories from GitHub using async/await | Hardcoded repository cards | Keep the feed current and demonstrate the required live API integration | Network availability and unauthenticated rate limits affect the feature |
-| 8 | Render repository data with DOM nodes and `textContent` | Interpolate API strings into HTML | Treat external descriptions and names as text | More verbose rendering code |
-| 9 | Include request timeout, loading status, error handling and retry | Show an empty area until a request succeeds | Make delays and failures understandable and recoverable | Additional state and focus behaviour must be maintained |
-| 10 | Use category buttons to filter the project list | Separate category pages | Let visitors narrow the existing list without a page change | Categories must stay accurate and results must be announced accessibly |
-| 11 | Use native `details` for the article contents, enhanced with JavaScript | A fully custom collapsible widget | Provide a usable disclosure control before enhancement and adapt it to mobile | Automatic layout changes need testing alongside the reader's interactions |
-| 12 | Respect reduced-motion preferences in CSS and article scrolling | Always animate transitions and scrolling | Support readers who prefer less movement | Less motion feedback for those users; state changes must remain visually clear |
+## HTML, CSS and JavaScript
 
-## Decisions still pending
+The site uses plain HTML, CSS and JavaScript. It does not need a build process, and the code for each page can be followed directly. One stylesheet and one script are shared across the site. The downside is that repeated HTML, such as navigation, needs to be kept consistent by hand.
 
-- **Hosting:** select and verify the actual platform, deployment URL and base path. Check custom 404 routing there.
-- **Form delivery:** choose whether to connect a service; if used, record the provider, reasons, alternatives and trade-offs. The current form does not send messages.
-- **Design tokens:** shared typography and spacing properties are now implemented with the original values preserved. Review the scale during visual testing and mirror it in Figma.
-- **Project documentation:** choose the first three detailed case studies and record accurate individual contributions and test evidence.
+## Separate pages
 
-Do not backdate this document or describe proposed work as completed. Be prepared to explain each retained entry using the corresponding HTML, CSS or JavaScript.
+Home, About, Projects and the article each have their own page. This keeps the homepage focused and gives longer content room of its own. Each project also has a separate page for its explanation and images.
+
+## Light and dark themes
+
+The themes share CSS colour properties instead of duplicating the whole stylesheet. JavaScript saves the visitor's choice when local storage is available. Both themes still need to be checked for readable text and clear controls.
+
+## Contact form
+
+The form uses inline messages to explain missing or invalid input. It also moves focus to the first field that needs attention. There is no delivery service connected, so the page tells visitors to use the email link. A valid form should never suggest that a message was sent when it was not.
+
+## GitHub feed and project filters
+
+The Projects page fetches recent public repositories from GitHub instead of keeping a manually updated list. Loading, empty and error messages explain what is happening, and a retry button lets the visitor try again. Repository names and descriptions are inserted as text rather than HTML.
+
+Category filters let visitors narrow the project list without opening another page. The selected filter and number of matching results are announced for assistive technology.
+
+## Project images
+
+Three project images were converted to WebP with Google's converter. The Cisco and Griffin screenshots used lossless conversion to preserve their detail. The Smart House image used quality 80 for a smaller file.
+
+The images were moved into `assets/images/`, and the HTML paths were updated to match. On the Networking page, I preferred one screenshot at the top, so the illustration and lower image section were removed.
+
+## Simpler project content
+
+I removed the extra labels above the project headings because the headings already describe each section. I also changed the tools from spans to bullet lists, making each item easier to pick out.
+
+## Branch organisation
+
+I wanted the work branches separated by file responsibility. Selected files can be copied from another branch with `git restore --source=...` when a full merge would also bring unwanted file deletions or unrelated changes. This updates the chosen files but does not make the branch histories identical.
+
+## Next decisions
+
+The remaining choices include where to host the site and whether to connect a form service. The Figma file needs to match the final website, and the two shorter project write-ups need accurate implementation details and results.
