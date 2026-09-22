@@ -3,16 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Two small home networks with IP addressing and connectivity testing. Explore the project approach, tools and current evidence.">
-  <title>Home Network Design &amp; Configuration | Uchindami Mkandawire</title>
+
+  <meta
+    name="description"
+    content="A home network design and configuration project completed using Cisco Packet Tracer."
+  >
+
+  <title>Network Design | Uchindami Mkandawire</title>
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
-<body class="page-case-study">
+
+<body class="page-project">
   <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="site-logo" href="index.html" aria-label="Uchindami — Home">
+
+      <a
+        class="site-logo"
+        href="index.html"
+        aria-label="Uchindami — Home"
+      >
         UCHINDAMI
       </a>
 
@@ -26,13 +40,17 @@
         Menu <span aria-hidden="true">☰</span>
       </button>
 
-      <nav id="primary-navigation" class="site-nav" aria-label="Main navigation">
+      <nav
+        id="primary-navigation"
+        class="site-nav"
+        aria-label="Main navigation"
+      >
         <ul class="nav-list">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="projects.html" aria-current="location">Projects</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
           <li><a href="article.html">Article</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
 
@@ -44,104 +62,268 @@
         hidden
       >
         <span class="theme-toggle-thumb" aria-hidden="true">
-          <svg
-            class="theme-icon-sun"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <circle cx="12" cy="12" r="4" fill="currentColor" />
-            <path
-              d="M12 2v2m0 16v2M2 12h2m16 0h2
-                 M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42
-                 M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-          </svg>
-
-          <svg
-            class="theme-icon-moon"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path
-              d="M20.9 13.2A9 9 0 0 1 10.8 3.1
-                 9 9 0 1 0 20.9 13.2Z"
-            />
-          </svg>
+          ☀
         </span>
       </button>
 
     </div>
   </header>
-  <main id="main-content" class="section">
-    <article class="container case-study" aria-labelledby="case-title">
-      <a class="text-link" href="projects.html#networking">? Back to projects</a>
-      <header class="case-heading">
-        <p class="eyebrow">Case study ? Networking ? Configuration</p>
-        <h1 id="case-title">Home Network Design &amp; Configuration</h1>
-        <p class="case-summary">Two small home networks with IP addressing and connectivity testing.</p>
-      </header>
-      <figure class="case-figure">
-        <img src="assets/images/network.png" alt="Illustration of a laptop displaying a network topology">
-        <figcaption>Illustration of a laptop displaying a network topology.</figcaption>
-      </figure>
-      <aside class="case-note" aria-label="Documentation status">
-        <strong>Case study in progress</strong>
-        <p>This overview draws on the existing project summary. My individual contribution, exact implementation details, test evidence and personal lessons still need to be added.</p>
-      </aside>
-      <nav class="case-contents" aria-label="Case study contents">
-        <a href="#problem">The problem</a>
-        <a href="#approach">Project approach</a>
-        <a href="#tools">Tools and components</a>
-        <a href="#results">Current evidence and results</a>
-        <a href="#next">Possible next steps</a>
-      </nav>
-      <section id="problem" class="case-section" aria-labelledby="problem-heading">
-        <h2 id="problem-heading">The problem</h2>
-        <p>Devices on a home network need an addressing plan and correctly configured connections to communicate. This project focuses on designing and configuring two small networks.</p>
-      </section>
-      <section id="approach" class="case-section" aria-labelledby="approach-heading">
-        <h2 id="approach-heading">Project approach</h2>
-        <p>The work described in the portfolio covers network design, IP addressing, device connectivity and communication testing between hosts. A useful final report will connect the network diagram to the address assigned to each device and the tests performed.</p>
-      </section>
-      <section id="tools" class="case-section" aria-labelledby="tools-heading">
-        <h2 id="tools-heading">Tools and components</h2>
-        <p>IP addressing, network-device configuration and host connectivity tests. The devices, simulator or physical lab environment and diagnostic commands still need to be named.</p>
-      </section>
-      <section id="results" class="case-section" aria-labelledby="results-heading">
-        <h2 id="results-heading">Current evidence and results</h2>
-        <p>Communication testing between hosts is recorded in the existing project summary. The actual outputs, topology diagrams and pass/fail observations are not yet included. The image on this page is an illustration, not test evidence.</p>
-      </section>
-      <section id="next" class="case-section" aria-labelledby="next-heading">
-        <h2 id="next-heading">Possible next steps</h2>
-        <p>Suggested next evaluation: add an addressing table, capture connectivity-test outputs and compare the observed behaviour with the expected communication paths.</p>
-      </section>
-      <div class="hero-actions">
-        <a class="button button-primary" href="projects.html">Explore other projects</a>
-        <a class="button button-secondary" href="index.html#contact">Contact me</a>
+
+
+  <main id="main-content">
+
+    <!-- Project Hero -->
+    <section class="project-hero section">
+      <div class="container project-hero-layout">
+
+        <div class="project-hero-content">
+          <a class="project-back-link" href="projects.html">
+            ← Back to Projects
+          </a>
+
+          <p class="eyebrow">Networking Project</p>
+
+          <h1>
+            Home Network
+            <span class="text-accent">Design & Configuration</span>
+          </h1>
+
+          <p class="project-intro">
+            Two small home networks designed and configured using Cisco
+            Packet Tracer to apply IP addressing, device configuration and
+            connectivity testing in practice.
+          </p>
+
+          <div class="project-tags" aria-label="Project technologies">
+            <span>Networking</span>
+            <span>TCP/IP</span>
+            <span>Cisco Packet Tracer</span>
+          </div>
+        </div>
+
+        <figure class="project-hero-visual">
+          <img
+            src="assets/images/network-main.png"
+            alt="Home network topology created in Cisco Packet Tracer"
+            width="800"
+            height="520"
+          >
+        </figure>
+
       </div>
-    </article>
+    </section>
+
+
+    <!-- Project Details -->
+    <section class="project-details section">
+      <div class="container project-content">
+
+        <!-- Problem -->
+        <section class="project-section">
+          <p class="project-section-label">01 / Problem</p>
+
+          <h2>The networking problem</h2>
+
+          <p>
+            Devices cannot communicate correctly on a network simply because
+            they are physically connected. They require appropriate IP
+            addressing and network configuration to identify each other and
+            exchange data.
+          </p>
+
+          <p>
+            This project focused on designing small home network environments
+            and correctly configuring the connected devices so that reliable
+            communication could take place.
+          </p>
+        </section>
+
+
+        <!-- Contribution -->
+        <section class="project-section">
+          <p class="project-section-label">02 / Contribution</p>
+
+          <h2>What I configured</h2>
+
+          <p>
+            I designed and configured two small home network scenarios using
+            Cisco Packet Tracer. I planned the network structure, connected
+            the required devices and assigned appropriate IP addresses to the
+            hosts.
+          </p>
+
+          <p>
+            After configuring the devices, I tested communication between
+            hosts and corrected addressing or connectivity problems where
+            necessary. The exercise allowed me to apply IP addressing and
+            network troubleshooting practically rather than only studying
+            them theoretically.
+          </p>
+        </section>
+
+
+        <!-- Network Visuals -->
+        <section class="project-section">
+          <p class="project-section-label">Network Topologies</p>
+
+          <h2>The two network scenarios</h2>
+
+          <div class="network-gallery">
+
+            <figure>
+              <img
+                src="cisco.png"
+                alt="First home network topology created in Cisco Packet Tracer"
+                width="700"
+                height="450"
+                loading="lazy"
+              >
+              <figcaption>Home Network 01</figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/images/network-2.png"
+                alt="Second home network topology created in Cisco Packet Tracer"
+                width="700"
+                height="450"
+                loading="lazy"
+              >
+              <figcaption>Home Network 02</figcaption>
+            </figure>
+
+          </div>
+        </section>
+
+
+        <!-- Process -->
+        <section class="project-section project-architecture">
+          <p class="project-section-label">Configuration Process</p>
+
+          <h2>How I approached the network</h2>
+
+          <div
+            class="architecture-flow"
+            aria-label="Plan network, connect devices, assign IP addresses, configure devices and test connectivity"
+          >
+            <span>Plan</span>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <span>Connect</span>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <span>Assign IPs</span>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <span>Configure</span>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <span>Test</span>
+          </div>
+        </section>
+
+
+        <!-- Tools -->
+        <section class="project-section">
+          <p class="project-section-label">03 / Tools</p>
+
+          <h2>Tools & concepts</h2>
+
+          <div class="project-tool-list">
+            <span>Cisco Packet Tracer</span>
+            <span>IP Addressing</span>
+            <span>TCP/IP</span>
+            <span>LAN Configuration</span>
+            <span>Network Topology</span>
+            <span>Connectivity Testing</span>
+            <span>Network Troubleshooting</span>
+          </div>
+        </section>
+
+
+        <!-- Reflection -->
+        <section class="project-section project-reflection">
+          <p class="project-section-label">04 / Reflection</p>
+
+          <h2>What I learned</h2>
+
+          <p>
+            This project improved my understanding of how IP addressing works
+            in practice and how devices are organised within a network. It
+            also taught me to troubleshoot connectivity problems
+            systematically instead of changing several settings at once.
+          </p>
+
+          <p>
+            If I developed the project further, I would introduce multiple
+            subnets, routing between networks and DHCP. This would extend the
+            exercise beyond basic host connectivity and provide experience
+            with more realistic network configurations.
+          </p>
+        </section>
+
+
+        <!-- Navigation -->
+        <div class="project-page-nav">
+          <a href="projects.html">← All Projects</a>
+          <a href="smart-house.html">Next Project →</a>
+         
+        </div>
+
+      </div>
+    </section>
+
   </main>
+
+
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
+
       <div class="footer-identity">
         <p class="footer-name">Uchindami @2026</p>
       </div>
 
-      <nav class="social-links" aria-label="Footer social and contact links">
-            <a href="https://github.com/Jeshurun-coder" aria-label="GitHub profile">
-              <img src="assets/icons/github.svg" alt="" width="20" height="20">
-            </a>
-            <span class="social-link-pending" role="img" aria-label="LinkedIn profile coming soon" title="LinkedIn profile coming soon">
-              <img src="assets/icons/linkedin.svg" alt="" width="20" height="20">
-            </span>
-            <a href="mailto:uchixy2005@gmail.com" aria-label="Email Uchindami">
-              <img src="assets/icons/email.svg" alt="" width="20" height="20">
-            </a>
-          </nav>
+      <nav
+        class="social-links"
+        aria-label="Footer social and contact links"
+      >
+        <a
+          href="https://github.com/Jeshurun-coder"
+          aria-label="GitHub profile"
+        >
+          <img
+            src="assets/icons/github.svg"
+            alt=""
+            width="20"
+            height="20"
+          >
+        </a>
+
+        <span
+          class="social-link-pending"
+          role="img"
+          aria-label="LinkedIn profile coming soon"
+        >
+          <img
+            src="assets/icons/linkedin.svg"
+            alt=""
+            width="20"
+            height="20"
+          >
+        </span>
+
+        <a
+          href="mailto:uchixy2005@gmail.com"
+          aria-label="Email Uchindami"
+        >
+          <img
+            src="assets/icons/email.svg"
+            alt=""
+            width="20"
+            height="20"
+          >
+        </a>
+      </nav>
+
     </div>
   </footer>
+
 </body>
 </html>
