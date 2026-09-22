@@ -1,82 +1,129 @@
-# Testing checklist
+# Testing
 
-This is the list of checks for the final website. The completed items below were checked in the code. Browser tests are still open unless a result is recorded.
+The portfolio website was tested against the main technical requirements of the assignment. Testing focused on HTML validation, responsive behaviour, JavaScript functionality, accessibility and performance.
 
-## Content and links
+## W3C HTML Validation
 
-- [x] Check that the homepage no longer links to `home.html`.
-- [x] Check that all five project pages exist.
-- [x] Add problem, contribution, tools and reflection sections to Griffin, Networking and Smart House.
-- [x] Update the three WebP image paths to `assets/images/`.
-- [x] Keep one project image on the Networking page.
-- [ ] Finish the Library Management and Smart Irrigation descriptions.
-- [ ] Review project contributions, results and About-page statistics for accuracy.
-- [ ] Add the CV PDF and try both download links.
-- [ ] Check that the article has at least 500 words of main text.
-- [ ] Fix the Griffin and Smart House Contact links to use `index.html#contact`.
-- [ ] Open every page and check its links and images on the live site.
-- [ ] Visit a missing URL and check the 404 page.
+The HTML pages were checked using the W3C Markup Validation Service.
 
-## Navigation and interactions
+Initial validation identified ARIA issues on some project pages, including `aria-label` attributes being used on elements without an appropriate semantic role. These were corrected and the affected pages were checked again.
 
-- [ ] Use the site with only a keyboard and check the skip link and focus order.
-- [ ] Open and close the mobile menu, including with Escape.
-- [ ] Switch themes and reload to check that the choice is saved.
-- [ ] Check that the theme switch still works when browser storage is unavailable.
-- [ ] Try every project filter and check the results.
-- [ ] Check the article contents links and mobile disclosure.
-- [ ] Check horizontally scrolling sections with touch and keyboard.
-- [ ] Check reduced-motion behaviour.
-- [ ] Look for console errors on every page.
-
-## Contact form
-
-- [ ] Submit empty fields and check the error messages.
-- [ ] Try spaces only, an invalid email address and text over the length limits.
-- [ ] Check that focus moves to the first invalid field.
-- [ ] Enter valid details and check that the message clearly says nothing was sent.
-
-## GitHub feed
-
-- [ ] Check that repositories load successfully.
-- [ ] Check the message for an empty result.
-- [ ] Test a failed request and an offline connection.
-- [ ] Test the timeout message and retry button.
-
-## Layout and accessibility
-
-- [ ] Check every page on mobile and desktop.
-- [ ] Test at 550, 768, 1024 and 1200 pixels, and just below each breakpoint.
-- [ ] Check for clipped text, stretched images and unwanted horizontal scrolling.
-- [ ] Check text and control contrast in both themes, including hover and error states.
-- [ ] Run each page through the W3C HTML validator and fix errors.
-- [ ] Save mobile and desktop screenshots.
-- [ ] Run Lighthouse on the deployed site and save the results. Targets: Performance 85+, Accessibility 90+, Best Practices 90+ and SEO 90+.
-
-## Test results
-
-Record the date, browser, screen size, result and screenshot location when each test is done.
-
-| Test | Result | Details or evidence |
+| Test | Result | Notes |
 | --- | --- | --- |
-| Local file references | Some fixes still needed | CV is missing; Griffin and Smart House link to `contact.html` |
-| Networking image and local links | File targets checked | Cisco screenshot and linked local files exist |
-| HTML validation | Not run yet | — |
-| Mobile and desktop layouts | Final checks pending | — |
-| Keyboard navigation | Not tested yet | — |
-| Form and GitHub behaviour | Browser tests pending | — |
-| Lighthouse | Not run yet | — |
+| HTML validation | Pass | W3C validation completed and identified errors were corrected |
+| Project pages | Pass | ARIA and section-related validation issues were corrected |
+| Final validation check | Pass | No remaining HTML errors requiring correction |
 
-The code checks above were made on 22 September 2026 using local `main` at `8a489c8`.
+## Responsive Design Testing
 
-## Before submission
+The website was tested at the main responsive breakpoints used in the stylesheet.
 
-- [ ] Add the live website and Figma links to the README.
-- [ ] Add a homepage screenshot and complete the image credits.
-- [ ] Review the design notes, decision log and AI-use disclosure.
-- [ ] Finish the Figma wireframes, design system, mobile and desktop layouts, and clickable flow.
-- [ ] Check the required pull requests and their descriptions. Separate branches alone do not meet the pull-request requirement.
-- [ ] Make sure the final website is on `main` and submit the required links in Classroom.
-- [ ] Practise explaining the code and making a small change without assistance.
+| Width | Layout | Result |
+| ---: | --- | --- |
+| `550px` | Mobile | Pass |
+| `768px` | Tablet | Pass |
+| `1024px` | Desktop | Pass |
+| `1200px` | Large desktop | Pass |
 
-The brief gives 15 September 2026 at 11:59pm as the deadline. Any agreed extension or revised submission instructions still need to be recorded.
+The following were checked at each size:
+
+- Navigation remained usable.
+- Text did not overlap or become clipped.
+- Project cards and skill sections adjusted correctly.
+- Portrait images remained correctly positioned and cropped.
+- Images maintained their proportions.
+- The contact form remained usable.
+- No unwanted horizontal page scrolling was found.
+
+### Responsive Testing Evidence
+
+![Home page at a 1200px desktop viewport](../assets/images/1200.png)
+
+Desktop layout at 1200px, showing the navigation, hero content and contained portrait.
+
+## JavaScript Testing
+
+The main interactive features were tested manually in the browser.
+
+| Test | Result | Notes |
+| --- | --- | --- |
+| Light/dark theme toggle | Pass | Theme changed correctly |
+| Theme persistence | Pass | Selected theme remained after page reload |
+| Mobile navigation | Pass | Menu opened and closed correctly |
+| Contact-form validation | Pass | Custom error messages appeared for invalid input |
+| Project filters | Pass | Correct projects were displayed for each category |
+| GitHub API | Pass | Public repository data loaded successfully |
+| API loading state | Pass | Loading state appeared while data was being retrieved |
+| API failure handling | Pass | Error handling worked when the browser was placed offline |
+| Retry behaviour | Pass | API request could be attempted again after reconnecting |
+| Browser console | Pass | No JavaScript errors or warnings remained during testing |
+
+![Contact form showing invalid-email and required-message errors, with a visible focus outline](../assets/images/incorrect%20filling.png)
+
+Invalid input produces inline messages; the focused Subject field has a visible outline.
+
+The offline test was used to test API failure handling. It was not used as the custom 404 test because an offline browser cannot reach the web server.
+
+## Accessibility Testing
+
+The website was tested manually for keyboard accessibility, focus visibility and colour contrast.
+
+| Test | Result | Notes |
+| --- | --- | --- |
+| Keyboard navigation | Pass | Interactive elements could be reached without using a mouse |
+| Visible focus | Pass | Focus state remained visible while navigating |
+| Skip link | Pass | Skip link moved focus to the main page content |
+| Navigation controls | Pass | Navigation and interactive controls were keyboard accessible |
+| Form accessibility | Pass | Form fields and validation messages remained usable by keyboard |
+| Light-theme contrast | Pass | Text remained readable against the light background |
+| Dark-theme contrast | Pass | Text remained readable against the dark background |
+| Reduced motion | Pass | Reduced-motion preference was respected |
+
+The screenshot below shows a contrast ratio of `8.17:1` for the blue introductory label against the dark background. This exceeds the WCAG AA requirement of `4.5:1` for normal body text.
+
+![Browser colour picker showing an 8.17 to 1 contrast ratio for blue text on the dark background](../assets/images/contrast%20test.png)
+
+## Lighthouse Testing
+
+The saved Lighthouse report for the local homepage (`http://127.0.0.1:5500/index.html`) shows the scores below. The screenshot also shows a 375px responsive viewport; the audit mode is not visible.
+
+| Category | Required Target | Result | Score |
+| --- | ---: | --- | ---: |
+| Performance | 85+ | Pass | 98 |
+| Accessibility | 90+ | Pass | 100 |
+| Best Practices | 90+ | Pass | 100 |
+| SEO | 90+ | Pass | 100 |
+
+### Lighthouse Evidence
+
+![Local homepage Lighthouse report: Performance 98, Accessibility 100, Best Practices 100 and SEO 100](../assets/images/375.png)
+
+## Custom 404 Page
+
+The custom `404.html` page exists and is ready for deployment testing.
+
+The 404 page cannot be correctly tested by setting the browser to offline mode because this produces the browser's own `ERR_INTERNET_DISCONNECTED` page before the server can respond.
+
+| Test | Result | Notes |
+| --- | --- | --- |
+| `404.html` exists | Pass | Custom page included in the project |
+| Invalid deployed URL | Pending | To be tested after deployment |
+
+After deployment, a deliberately invalid URL will be opened while connected to the internet to confirm that the custom 404 page is returned.
+
+## Test Summary
+
+| Test Area | Result |
+| --- | --- |
+| W3C HTML validation | Pass |
+| Responsive design | Pass |
+| JavaScript functionality | Pass |
+| GitHub API | Pass |
+| Keyboard accessibility | Pass |
+| Colour contrast | Pass |
+| Reduced motion | Pass |
+| Browser console | Pass |
+| Lighthouse | Pass |
+| Custom 404 on deployed site | Pending |
+
+The main functionality and technical requirements of the portfolio passed testing. The remaining test is the custom 404 response on the deployed website.
