@@ -742,63 +742,22 @@ a {
   opacity: 0.45;
 }
 
-/* HOME PAGE — portrait and decorative background */
+/* HOME PAGE — photograph cropped inside an angled frame */
 
-/* Portrait background colours */
-
-:root {
-  --portrait-panel: #123859;
-  --portrait-panel-edge: #1a466d;
+.page-home .home-portrait-frame {
+  width: min(100%, 24rem);
+  aspect-ratio: 4 / 5;
+  justify-self: center;
+  overflow: hidden;
+  clip-path: polygon(20% 0, 100% 0, 80% 100%, 0 93%);
 }
 
-:root[data-theme="light"] {
-  --portrait-panel: #d3e8ff;
-  --portrait-panel-edge: #bddcff;
-}
-
-/* Portrait container */
-
-.page-home .hero-visual {
-  position: relative;
-  isolation: isolate;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-}
-
-/* Slanted blue panel */
-
-.page-home .hero-visual::before {
-  content: "";
-  position: absolute;
-  inset: 4% 8% 3% 5%;
-  z-index: -1;
-  pointer-events: none;
-
-  background: linear-gradient(110deg,
-      var(--portrait-panel-edge) 0%,
-      var(--portrait-panel) 14%,
-      var(--portrait-panel) 86%,
-      var(--portrait-panel-edge) 86%);
-
-  clip-path: polygon(25% 0,
-      100% 0,
-      76% 100%,
-      0 93%);
-}
-
-/* Remove a second decorative blob, if present */
-
-.page-home .hero-visual::after {
-  content: none;
-}
-
-/* Keep the portrait above the panel */
-
-.page-home .hero-image {
-  position: relative;
-  z-index: 1;
-  display: block;
+.page-home .home-portrait-frame .hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% 30%;
+  mask-image: none;
 }
 
 /* ABOUT PAGE */
@@ -862,27 +821,24 @@ a {
 /* Portrait */
 
 .about-hero-visual {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
   align-self: center;
-  width: 100%;
-  max-width: 400px;
+  width: min(100%, 400px);
   justify-self: center;
+}
+
+.about-portrait-frame {
+  aspect-ratio: 1;
+  border-radius: 50%;
   overflow: hidden;
-  border: 1px solid rgba(127, 145, 170, 0.24);
-  border-radius: 16px;
-  background: rgba(127, 145, 170, 0.08);
+  border: 3px solid var(--color-primary);
 }
 
 .about-portrait {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 380px;
-  object-fit: contain;
-  object-position: center bottom;
-  align-self: flex-end;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 25%;
 }
 
 /* Statistics */
@@ -2386,13 +2342,7 @@ a {
   white-space: normal;
 }
 
-.about-hero-visual {
-  min-height: 240px;
-}
 
-.about-portrait {
-  max-height: 280px;
-}
 
 .about-stats {
   grid-template-columns: minmax(0, 1fr);
@@ -2763,20 +2713,7 @@ a {
     width: auto;
   }
 
-  .about-hero-visual {
-    position: relative;
-    align-self: stretch;
-    min-height: 0;
-  }
-
-  .about-portrait {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    max-height: none;
-  }
-
-  .about-stats {
+.about-stats {
     align-self: stretch;
     align-content: space-between;
   }
