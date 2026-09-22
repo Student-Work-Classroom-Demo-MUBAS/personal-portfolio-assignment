@@ -18,6 +18,65 @@
   --color-focus: #fbbf24;
 }
 
+/* Networking case study */
+.page-networking .project-hero-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  align-items: center;
+  gap: 2rem;
+}
+
+.page-networking .project-hero-content,
+.page-networking .project-section {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.page-networking .project-hero-visual img {
+  width: 100%;
+  max-width: 28rem;
+  margin-inline: auto;
+}
+
+.page-networking .project-details .project-content {
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.page-networking .project-tags,
+.page-networking .architecture-flow,
+.page-networking .project-page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.page-networking .project-page-nav {
+  justify-content: space-between;
+}
+
+.page-networking .network-gallery img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.page-networking figcaption {
+  margin-top: 0.5rem;
+  color: var(--color-text-muted);
+}
+
+.page-networking .project-tool-list {
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.page-networking .project-tool-list li + li {
+  margin-top: 0.35rem;
+}
+
 /* Reset and base styles */
 
 *,
