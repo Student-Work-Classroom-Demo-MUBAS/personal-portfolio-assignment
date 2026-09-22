@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Explore Uchindami Mkandawire's engineering projects,
+    covering embedded systems, web software and networking."
+  >
+
+  <title>Projects | Uchindami Mkandawire</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="page-projects">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Shared site header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-logo" href="index.html" aria-label="Uchindami — Home">
+        UCHINDAMI
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        hidden
+      >
+        Menu <span aria-hidden="true">☰</span>
+      </button>
+
+      <nav id="primary-navigation" class="site-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="article.html">Article</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Dark mode"
+        aria-pressed="false"
+        hidden
+      >
+        <span class="theme-toggle-thumb" aria-hidden="true">
+          <svg
+            class="theme-icon-sun"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <circle cx="12" cy="12" r="4" fill="currentColor" />
+            <path
+              d="M12 2v2m0 16v2M2 12h2m16 0h2
+                 M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42
+                 M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+
+          <svg
+            class="theme-icon-moon"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M20.9 13.2A9 9 0 0 1 10.8 3.1
+                 9 9 0 1 0 20.9 13.2Z"
+            />
+          </svg>
+        </span>
+      </button>
+
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Projects introduction -->
+    <section class="hero projects-hero section" aria-labelledby="projects-heading">
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <p class="eyebrow">Selected Projects</p>
+
+          <h1 id="projects-heading">
+            Systems built around real engineering problems
+          </h1>
+
+          <p class="hero-description">
+            A selection of embedded, web and networking projects developed through coursework and practical engineering work.
+          </p>
+
+          <!-- JavaScript enables the category filters. -->
+          <div
+            class="project-filters"
+            role="group"
+            aria-label="Filter projects by category"
+          >
+            <button class="button button-primary filter-button is-active"
+              type="button" data-filter="all" aria-pressed="true"
+              aria-controls="project-list" disabled>All</button>
+
+            <button class="button button-secondary filter-button"
+              type="button" data-filter="embedded" aria-pressed="false"
+              aria-controls="project-list" disabled>Embedded &amp; IoT</button>
+
+            <button class="button button-secondary filter-button"
+              type="button" data-filter="web" aria-pressed="false"
+              aria-controls="project-list" disabled>Web &amp; Software</button>
+
+            <button class="button button-secondary filter-button"
+              type="button" data-filter="networking" aria-pressed="false"
+              aria-controls="project-list" disabled>Networking</button>
+          </div>
+        </div>
+
+        <div class="hero-visual projects-hero-visual">
+          <img
+            class="hero-image"
+            src="assets/images/projects.webp"
+            alt="Hands working on a laptop displaying an AI processor and connected circuits"
+            width="682"
+            height="461"
+            fetchpriority="high"
+          >
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Featured projects -->
+    <section
+      class="featured-projects section"
+      aria-labelledby="featured-heading"
+    >
+      <div class="container">
+        <header class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2 id="featured-heading">Featured projects</h2>
+        </header>
+
+        <!-- Filter results are announced to screen readers. -->
+        <p
+          id="project-filter-status"
+          class="visually-hidden"
+          role="status"
+          aria-atomic="true"
+        >
+          Showing all 5 projects.
+        </p>
+
+        <div id="project-list" class="projects-grid" tabindex="0" role="region" aria-label="Featured projects, scroll horizontally to explore">
+          <article id="griffin" class="project-card" data-category="embedded web" aria-labelledby="griffin-heading">
+            <img class="project-image" src="assets/images/griffin-iws.webp"
+              alt="GRIFFIN prototype with a microcontroller, flow sensor, pump and tubing"
+              width="800" height="1067" loading="lazy">
+            <div class="project-content">
+              <p class="project-tags">Embedded · IoT · Web</p>
+              <h3 id="griffin-heading">GRIFFIN</h3>
+              <p>A remote fuel monitoring system for telecom tower generator sites, integrating embedded sensing, data communication, backend services and a web dashboard.</p>
+              <a class="text-link" href="griffin.html">
+                View project<span class="visually-hidden">: GRIFFIN</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <article id="smart-irrigation" class="project-card" data-category="embedded web" aria-labelledby="smart-irrigation-heading">
+            <img class="project-image" src="assets/images/irrigation.webp"
+              alt="Smart irrigation prototype displaying a soil moisture reading"
+              width="800" height="602" loading="lazy">
+            <div class="project-content">
+              <p class="project-tags">Embedded · IoT · Web</p>
+              <h3 id="smart-irrigation-heading">Smart Irrigation</h3>
+              <p>A sensor-based irrigation system that monitors environmental conditions and supports automated watering with a web-based monitoring dashboard.</p>
+              <a class="text-link" href="smart-irrigation.html">
+                View project<span class="visually-hidden">: Smart Irrigation</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <article id="smart-house" class="project-card" data-category="embedded" aria-labelledby="smart-house-heading">
+            <img class="project-image" src="assets/images/smart-house-y.webp"
+              alt="Smart house prototype with a microcontroller, sensors and connected wiring"
+              width="800" height="1067" loading="lazy">
+            <div class="project-content">
+              <p class="project-tags">Embedded · IoT</p>
+              <h3 id="smart-house-heading">Smart House</h3>
+              <p>A home automation project combining sensors, control logic and embedded hardware to monitor and control household functions.</p>
+              <a class="text-link" href="smart-house.html">
+                View project<span class="visually-hidden">: Smart House</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <article id="networking" class="project-card" data-category="networking" aria-labelledby="networking-heading">
+            <img class="project-image" src="assets/images/network.webp"
+              alt="Network illustration with a laptop displaying a network topology"
+              width="391" height="381" loading="lazy">
+            <div class="project-content">
+              <p class="project-tags">Networking</p>
+              <h3 id="networking-heading">Home Network Design &amp; Configuration</h3>
+              <p>Two small home networks designed and configured with appropriate IP addressing and device connectivity, followed by communication testing between hosts.</p>
+              <a class="text-link" href="networking.html">
+                View project<span class="visually-hidden">: Home Network Design &amp; Configuration</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <article id="library-management" class="project-card" data-category="web" aria-labelledby="library-management-heading">
+            <img class="project-image" src="assets/images/library.webp"
+              alt="Library management system sequence diagram for login and book search"
+              width="800" height="490" loading="lazy">
+            <div class="project-content">
+              <p class="project-tags">Software · Database</p>
+              <h3 id="library-management-heading">Library Management System</h3>
+              <p>A software-based library management system for organising and managing library records and common library operations.</p>
+              <a class="text-link" href="library-management.html">
+                View project<span class="visually-hidden">: Library Management System</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+
+        <p class="project-empty-state" hidden>
+          No projects in this category yet. Select another category
+          to explore more work.
+        </p>
+      </div>
+    </section>
+
+
+
+    <section class="section github-section" aria-labelledby="github-heading">
+  <div class="container">
+    <header class="section-heading">
+      <p class="eyebrow">Live from GitHub</p>
+      <h2 id="github-heading">Recent repositories</h2>
+      <p>Explore the code behind my work.</p>
+    </header>
+
+    <p id="github-status" role="status" aria-atomic="true"></p>
+
+    <div id="github-repos" class="github-grid"></div>
+
+    <button
+      id="github-retry"
+      class="button button-secondary"
+      type="button"
+      hidden
+    >
+      Try again
+    </button>
+
+    <p>
+      <a class="text-link" href="https://github.com/Jeshurun-coder">
+        View my GitHub profile →
+      </a>
+    </p>
+
+    <noscript>
+      <p>Enable JavaScript to load repositories, or visit my GitHub profile.</p>
+    </noscript>
+  </div>
+</section>
+
+    <!-- Contact call to action -->
+    <section class="contact-cta section" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow">Let’s Connect</p>
+
+            <h2 id="contact-heading">
+              Interested in the process behind the projects?
+            </h2>
+
+            <p>
+              <a class="text-link" href="article.html">
+                Read the technical article
+              </a>
+              or get in touch.
+            </p>
+          </div>
+
+          <a class="button button-primary" href="index.html#contact">
+            Contact Me <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared site footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-identity">
+        <p class="footer-name">Uchindami @2026</p>
+      </div>
+
+      <nav class="social-links" aria-label="Footer social and contact links">
+            <a href="https://github.com/Jeshurun-coder" aria-label="GitHub profile">
+              <img src="assets/icons/github.svg" alt="" width="20" height="20">
+            </a>
+            <span class="social-link-pending" role="img" aria-label="LinkedIn profile coming soon" title="LinkedIn profile coming soon">
+              <img src="assets/icons/linkedin.svg" alt="" width="20" height="20">
+            </span>
+            <a href="mailto:uchixy2005@gmail.com" aria-label="Email Uchindami">
+              <img src="assets/icons/email.svg" alt="" width="20" height="20">
+            </a>
+          </nav>
+    </div>
+  </footer>
+</body>
+</html>
