@@ -357,7 +357,7 @@ a {
   Once JavaScript reveals the menu button, aria-expanded
   controls whether the mobile navigation is visible.
 */
-.menu-toggle:not([hidden])[aria-expanded="false"] ~ .site-nav {
+.menu-toggle:not([hidden])[aria-expanded="false"]~.site-nav {
   display: none;
 }
 
@@ -515,7 +515,7 @@ a {
   font-weight: 600;
 }
 
-.project-content > p:not(.project-tags) {
+.project-content>p:not(.project-tags) {
   font-size: 0.9375rem;
 }
 
@@ -545,7 +545,7 @@ a {
   object-position: center;
 }
 
-.page-home .featured-projects .project-content > p {
+.page-home .featured-projects .project-content>p {
   line-height: 1.45;
 }
 
@@ -639,7 +639,7 @@ a {
   white-space: nowrap;
 }
 
-.footer-identity > p + p {
+.footer-identity>p+p {
   margin-top: 0.25rem;
   font-size: 0.9375rem;
 }
@@ -716,20 +716,16 @@ a {
   z-index: -1;
   pointer-events: none;
 
-  background: linear-gradient(
-    110deg,
-    var(--portrait-panel-edge) 0%,
-    var(--portrait-panel) 14%,
-    var(--portrait-panel) 86%,
-    var(--portrait-panel-edge) 86%
-  );
+  background: linear-gradient(110deg,
+      var(--portrait-panel-edge) 0%,
+      var(--portrait-panel) 14%,
+      var(--portrait-panel) 86%,
+      var(--portrait-panel-edge) 86%);
 
-  clip-path: polygon(
-    25% 0,
-    100% 0,
-    76% 100%,
-    0 93%
-  );
+  clip-path: polygon(25% 0,
+      100% 0,
+      76% 100%,
+      0 93%);
 }
 
 /* Remove a second decorative blob, if present */
@@ -757,9 +753,7 @@ a {
 .about-hero-layout {
   display: grid;
   grid-template-columns:
-    minmax(0, 1.4fr)
-    minmax(0, 1.2fr)
-    minmax(120px, 150px);
+    minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(120px, 150px);
   align-items: center;
   gap: clamp(20px, 3vw, 40px);
 }
@@ -852,7 +846,7 @@ a {
   padding: 12px 0;
 }
 
-.stat-item + .stat-item {
+.stat-item+.stat-item {
   border-top: 1px solid rgba(127, 145, 170, 0.24);
 }
 
@@ -1005,8 +999,8 @@ a {
   line-height: 1.5;
 }
 
-.page-about .technology-grid > .technology-card,
-.page-about .technology-grid > .skill-card {
+.page-about .technology-grid>.technology-card,
+.page-about .technology-grid>.skill-card {
   display: flex;
   scroll-snap-align: start;
   flex-direction: column;
@@ -1056,7 +1050,7 @@ a {
   font-weight: 600;
 }
 
-.page-about .technology-grid > .technology-card:hover {
+.page-about .technology-grid>.technology-card:hover {
   transform: translateY(-4px);
   border-color: rgba(127, 145, 170, 0.5);
   box-shadow: 0 6px 16px rgb(11 23 51 / 7%);
@@ -1159,7 +1153,7 @@ a {
   min-height: 100svh;
 }
 
-.page-projects > main {
+.page-projects>main {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -1324,13 +1318,13 @@ a {
   overflow-wrap: break-word;
 }
 
-.page-projects .project-content > p:not(.project-tags) {
+.page-projects .project-content>p:not(.project-tags) {
   margin: 0;
   font-size: 0.8125rem;
   line-height: 1.5;
 }
 
-.page-projects .project-content > .text-link {
+.page-projects .project-content>.text-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1361,11 +1355,11 @@ a {
   gap: 24px;
 }
 
-.page-projects .contact-panel > div {
+.page-projects .contact-panel>div {
   min-width: 0;
 }
 
-.page-projects .contact-panel > .button {
+.page-projects .contact-panel>.button {
   flex-shrink: 0;
 }
 
@@ -1717,9 +1711,7 @@ a {
 
 .page-article .article-toc-list li:has(a:hover)::before,
 .page-article .article-toc-list li:has(a:focus-visible)::before,
-.page-article .article-toc-list li:has(
-  a[aria-current="location"]
-)::before {
+.page-article .article-toc-list li:has(a[aria-current="location"])::before {
   background: var(--color-primary);
   border-color: var(--color-primary);
 }
@@ -1806,31 +1798,65 @@ a {
 
 
 /* Home contact section: mobile first. */
-.home-contact { scroll-margin-top: 5rem; }
+.home-contact {
+  scroll-margin-top: 5rem;
+}
+
 /* Hide the removed social stack in older copies of the contact markup. */
 .home-contact .contact-socials,
 .home-contact .contact-social-link {
   display: none !important;
 }
+
 .home-contact-layout {
   display: grid;
   grid-template-areas: "overview" "form";
   gap: 1.5rem;
   align-items: start;
 }
-.contact-overview { grid-area: overview; min-width: 0; display: grid; gap: 1.25rem; }
-.contact-intro h2 { margin-bottom: 0.75rem; }
-.contact-intro > p:not(.eyebrow) { max-width: 65ch; }
-.contact-location strong { display: block; color: var(--color-text); }
-.contact-location { min-width: 0; width: 100%; }
-.contact-location > img {
+
+.contact-overview {
+  grid-area: overview;
+  min-width: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.contact-intro h2 {
+  margin-bottom: 0.75rem;
+}
+
+.contact-intro>p:not(.eyebrow) {
+  max-width: 65ch;
+}
+
+.contact-location strong {
+  display: block;
+  color: var(--color-text);
+}
+
+.contact-location {
+  min-width: 0;
+  width: 100%;
+}
+
+.contact-location>img {
   width: 100%;
   height: auto;
   aspect-ratio: 595 / 268;
   border-radius: 0.5rem;
 }
-.contact-location figcaption { margin-top: 0.625rem; }
-.contact-location figcaption span { display: block; color: var(--color-text-muted); font-size: 0.875rem; }
+
+.contact-location figcaption {
+  margin-top: 0.625rem;
+}
+
+.contact-location figcaption span {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
 .contact-form-panel {
   grid-area: form;
   min-width: 0;
@@ -1839,15 +1865,30 @@ a {
   border-radius: 0.75rem;
   background: var(--color-surface);
 }
-.contact-form-fields { display: grid; gap: 0.75rem; min-width: 0; margin: 0; padding: 0; border: 0; }
+
+.contact-form-fields {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 .form-group {
   display: grid;
   align-content: start;
   gap: 0.25rem;
   min-width: 0;
 }
-.form-group label { font-size: 0.875rem; font-weight: 600; }
-.form-group input, .form-group textarea {
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
   width: 100%;
   min-width: 0;
   padding: 0.5rem 0.625rem;
@@ -1858,17 +1899,58 @@ a {
   font: inherit;
   line-height: 1.5;
 }
-.form-group input { height: 44px; }
-.field-error { margin: 0; font-size: 0.875rem; line-height: 1.5; }
-.form-group textarea { min-height: 88px; resize: vertical; }
-.form-group input::placeholder, .form-group textarea::placeholder { color: var(--color-text-muted); }
-.form-group [aria-invalid="true"] { border-color: #e05252; }
-.form-note, .form-status { font-size: 0.875rem; line-height: 1.5; }
-.form-note { margin-bottom: 0.75rem; }
-.form-status { margin-top: 0.75rem; }
-.form-status:empty { margin: 0; }
-.contact-form .button { min-height: 44px; padding: 0.5rem 1rem; }
-.contact-form :disabled { cursor: not-allowed; opacity: 0.6; }
+
+.form-group input {
+  height: 44px;
+}
+
+.field-error {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.form-group textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-group [aria-invalid="true"] {
+  border-color: #e05252;
+}
+
+.form-note,
+.form-status {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.form-note {
+  margin-bottom: 0.75rem;
+}
+
+.form-status {
+  margin-top: 0.75rem;
+}
+
+.form-status:empty {
+  margin: 0;
+}
+
+.contact-form .button {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+}
+
+.contact-form :disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
 
 
 
@@ -2068,6 +2150,7 @@ a {
   border: 1px solid var(--color-border);
   color: var(--color-text);
 }
+
 /* Project cards and supporting panels */
 :root[data-theme="light"] .project-card,
 :root[data-theme="light"] .contact-panel {
@@ -2256,7 +2339,7 @@ a {
   grid-template-columns: minmax(0, 1fr);
 }
 
-.stat-item + .stat-item,
+.stat-item+.stat-item,
 .stat-item:nth-child(even),
 .stat-item:nth-child(n + 3) {
   border-top: 1px solid rgba(127, 145, 170, 0.24);
@@ -2278,8 +2361,8 @@ a {
   grid-auto-columns: 100%;
 }
 
-.page-about .technology-grid > .technology-card,
-.page-about .technology-grid > .skill-card {
+.page-about .technology-grid>.technology-card,
+.page-about .technology-grid>.skill-card {
   padding: 14px;
 }
 
@@ -2325,7 +2408,7 @@ a {
   gap: 20px;
 }
 
-.page-projects .contact-panel > .button {
+.page-projects .contact-panel>.button {
   width: 100%;
 }
 
@@ -2547,7 +2630,7 @@ a {
     padding: 0;
   }
 
-  .menu-toggle:not([hidden])[aria-expanded="false"] ~ .site-nav {
+  .menu-toggle:not([hidden])[aria-expanded="false"]~.site-nav {
     display: block;
   }
 
@@ -2690,7 +2773,7 @@ a {
     align-items: center;
   }
 
-  .page-projects .contact-panel > .button {
+  .page-projects .contact-panel>.button {
     width: auto;
   }
 
@@ -2776,9 +2859,7 @@ a {
 @media (min-width: 1024px) {
   .about-hero-layout {
     grid-template-columns:
-      minmax(0, 1.4fr)
-      minmax(0, 1.2fr)
-      minmax(120px, 150px);
+      minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(120px, 150px);
     gap: clamp(20px, 3vw, 40px);
   }
 
@@ -2829,11 +2910,11 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .contact-form-fields > .form-group {
+  .contact-form-fields>.form-group {
     grid-column: 1 / -1;
   }
 
-  .contact-form-fields > .form-group:nth-of-type(-n + 2) {
+  .contact-form-fields>.form-group:nth-of-type(-n + 2) {
     grid-column: auto;
   }
 }
