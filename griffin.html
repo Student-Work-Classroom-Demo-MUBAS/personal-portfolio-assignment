@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="GRIFFIN is a remote fuel monitoring system developed for telecommunications tower generator sites."
+  >
+
+  <title>GRIFFIN | Uchindami Mkandawire</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="page-project">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a
+        class="site-logo"
+        href="index.html"
+        aria-label="Uchindami — Home"
+      >
+        UCHINDAMI
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        hidden
+      >
+        Menu <span aria-hidden="true">☰</span>
+      </button>
+
+      <nav
+        id="primary-navigation"
+        class="site-nav"
+        aria-label="Main navigation"
+      >
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html" aria-current="location">Projects</a></li>
+          <li><a href="article.html">Article</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Dark mode"
+        aria-pressed="false"
+        hidden
+      >
+        <span class="theme-toggle-thumb" aria-hidden="true">
+          ☀
+        </span>
+      </button>
+
+    </div>
+  </header>
+
+
+  <main id="main-content">
+
+    <!-- Project Hero -->
+    <section class="project-hero section">
+      <div class="container project-hero-layout">
+
+        <div class="project-hero-content">
+          <a class="project-back-link" href="projects.html">
+            ← Back to Projects
+          </a>
+
+          <p class="eyebrow">Featured Project</p>
+
+          <h1>
+            GRIFFIN
+            <span class="text-accent">Fuel Monitoring System</span>
+          </h1>
+
+          <p class="project-intro">
+            A remote fuel monitoring system for telecommunications tower
+            generator sites, combining embedded sensing, data communication,
+            backend services and a web dashboard.
+          </p>
+
+          <div class="project-tags">
+            <span>Embedded</span>
+            <span>IoT</span>
+            <span>Web</span>
+          </div>
+        </div>
+
+        <figure class="project-hero-visual">
+          <img
+            src="assets/images/griffin.dash.webp"
+            alt="GRIFFIN fuel monitoring dashboard"
+            width="800"
+            height="520"
+          >
+        </figure>
+
+      </div>
+    </section>
+
+
+    <!-- Project Details -->
+    <div class="project-details section">
+      <div class="container project-content">
+
+        <!-- Problem -->
+        <section class="project-section">
+          <h2>The engineering problem</h2>
+
+          <p>
+            Telecommunication sites often depend on backup generators where
+            grid power is unreliable. Monitoring fuel manually can make it
+            difficult to detect unusual fuel loss, leakage or abnormal
+            consumption quickly.
+          </p>
+
+          <p>
+            GRIFFIN addresses this by collecting fuel-related measurements
+            electronically and sending them to a central system for remote
+            monitoring and analysis.
+          </p>
+        </section>
+
+
+        <!-- Contribution -->
+        <section class="project-section">
+          <h2>What I worked on</h2>
+
+          <p>
+            My work has focused on both the embedded system and the software
+            platform. I worked with an ESP32 microcontroller and sensors used
+            to measure fuel level, fuel flow and electrical load. This involved
+            sensor interfacing, calibration, signal conditioning and firmware
+            development.
+          </p>
+
+          <p>
+            The ESP32 collects sensor readings and prepares them for
+            transmission to the backend. The backend stores the measurements
+            in a database, while a web dashboard presents information such as
+            fuel level, flow rate, load and system status.
+          </p>
+
+          <p>
+            I have also worked on the system architecture and on how the
+            collected data can be used to identify conditions such as normal
+            consumption, heavy consumption, leakage, fuel delivery and
+            possible fuel theft.
+          </p>
+        </section>
+
+
+        <!-- Architecture -->
+        <section class="project-section project-architecture">
+          <h2>How the system works</h2>
+
+          <div
+            class="architecture-flow" role="img"
+            aria-label="Sensors to ESP32 to backend to database to dashboard"
+          >
+            <span>Sensors</span>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <span>ESP32</span>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <span>Backend</span>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <span>Database</span>
+            <span class="flow-arrow" aria-hidden="true">→</span>
+            <span>Dashboard</span>
+          </div>
+        </section>
+
+
+        <!-- Tools -->
+        <section class="project-section">
+          <h2>Tools & technologies</h2>
+
+          <ul class="project-tool-list">
+            <li>ESP32</li>
+            <li>C/C++</li>
+            <li>Python</li>
+            <li>FastAPI</li>
+            <li>PostgreSQL</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Git & GitHub</li>
+            <li>Flow Sensor</li>
+            <li>Ultrasonic Sensor</li>
+            <li>Current Sensor</li>
+          </ul>
+        </section>
+
+
+        <!-- Reflection -->
+        <section class="project-section project-reflection">
+          <h2>What I learned</h2>
+
+          <p>
+            GRIFFIN has taught me that embedded development involves much more
+            than connecting sensors and writing code. Calibration, grounding,
+            voltage levels, noisy measurements and hardware limitations can
+            directly affect the reliability of the complete system.
+          </p>
+
+          <p>
+            If I restarted the project, I would establish a more structured
+            sensor calibration and data-collection process earlier. This would
+            provide more reliable measurements before implementing higher-level
+            features such as classification and predictive analysis.
+          </p>
+        </section>
+
+
+        <!-- Navigation -->
+        <div class="project-page-nav">
+          <a href="projects.html">← All Projects</a>
+          <a href="networking.html">Next Project →</a>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <div class="footer-identity">
+        <p class="footer-name">Uchindami @2026</p>
+      </div>
+
+      <nav
+        class="social-links"
+        aria-label="Footer social and contact links"
+      >
+        <a
+          href="https://github.com/Jeshurun-coder"
+          aria-label="GitHub profile"
+        >
+          <img
+            src="assets/icons/github.svg"
+            alt=""
+            width="20"
+            height="20"
+          >
+        </a>
+
+        <span
+          class="social-link-pending"
+          role="img"
+          aria-label="LinkedIn profile coming soon"
+        >
+          <img
+            src="assets/icons/linkedin.svg"
+            alt=""
+            width="20"
+            height="20"
+          >
+        </span>
+
+        <a
+          href="mailto:uchixy2005@gmail.com"
+          aria-label="Email Uchindami"
+        >
+          <img
+            src="assets/icons/email.svg"
+            alt=""
+            width="20"
+            height="20"
+          >
+        </a>
+      </nav>
+
+    </div>
+  </footer>
+
+</body>
+</html>
