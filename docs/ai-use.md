@@ -35,6 +35,9 @@ Codex and chat gpt provided assistance with selected design refinements, includi
 
 I made the final decisions regarding the appearance, structure, content, and layout of the portfolio.
 
+## Figma design
+codex came up with the mockups by creating svg files referencing my finalised code and i dragged and dropped them into figma
+
 ## Image Processing
 
 Codex assisted with:
