@@ -1,59 +1,93 @@
-# Uchindami Mkandawire — Engineering Portfolio
+﻿# Uchindami Mkandawire — Engineering Portfolio
 
-This is my personal portfolio for the Internet and Web Services assignment at MUBAS. It brings together my background, technical skills, engineering projects and an article on artificial intelligence in embedded systems.
+This is my completed personal portfolio for the Internet and Web Services assignment at MUBAS. It brings together my background, technical skills, engineering projects and an article on artificial intelligence in embedded systems.
 
-The site is built with HTML, CSS and JavaScript. It includes light and dark themes, mobile navigation, project filters and a feed of my recent public GitHub repositories.
+The site is built with HTML, CSS and JavaScript and is deployed on GitHub Pages. No framework, package installation or build step is required.
 
 ## Links
 
+- [Live website](https://Student-Work-Classroom-Demo-MUBAS.github.io/personal-portfolio-assignment/)
 - [Repository](https://github.com/Student-Work-Classroom-Demo-MUBAS/personal-portfolio-assignment)
-- Live website: link to be added.
-- Figma design: link to be added.
-- Homepage screenshot: to be added.
+- [Download my CV](assets/documents/uchindami-mkandawire-cv.pdf)
+
+## Homepage preview
+
+![Portfolio homepage at a 1200px desktop viewport](assets/images/1200.png)
 
 ## Pages
 
-The homepage introduces my work and includes a contact section. The About page covers my background and skills, while the Projects page links to five projects:
+- [Home](index.html): introduction, featured projects and contact section.
+- [About](about.html): background, technical skills and CV download.
+- [Projects](projects.html): category filters, project links and recent public GitHub repositories.
+- [Article](article.html): artificial intelligence in embedded systems.
+- [Custom 404](404.html): a recovery page with links back to Home and Projects.
 
-- GRIFFIN fuel monitoring system
-- Smart Irrigation
-- Smart House
-- Home Network Design and Configuration
-- Library Management System
+The portfolio includes five project pages:
 
-There is also a technical article and a custom 404 page. The Griffin, Smart House and Networking pages explain the problem, my contribution, the tools used and what I learned. The Library Management and Smart Irrigation pages still need more detail.
+- [GRIFFIN fuel monitoring system](griffin.html)
+- [Smart Irrigation](smart-irrigation.html)
+- [Smart House](smart-house.html)
+- [Home Network Design and Configuration](networking.html)
+- [Library Management System](library-management.html)
 
-## Running the site
+## Features
 
-Use the `main` branch for the website. The `feature/reports` branch holds the documentation.
+- Responsive layouts for mobile, tablet and desktop screens.
+- Light and dark themes with saved preferences.
+- Mobile navigation and project category filters.
+- GitHub API integration with loading, error and retry states.
+- Contact-form validation with inline error messages.
+- Keyboard navigation, skip links, visible focus and reduced-motion support.
+- Downloadable CV and optimised WebP project images.
 
-Open the project folder with VS Code and use Live Server, or run this command from the project folder if Python is installed:
+The contact form validates input but does not send messages. Visitors can contact me through the email link provided on the site.
+
+## Running the site locally
+
+The `main` branch contains the website and its documentation.
+
+Open the project folder in VS Code and use Live Server, or run the following command from the project folder if Python is installed:
 
 ```sh
 python -m http.server 8000
 ```
 
-Then visit `http://localhost:8000/index.html`. No build step or package installation is needed. The GitHub feed and the About page's technology icons need an internet connection.
+Then visit `http://localhost:8000/index.html`. The GitHub feed and the About page's technology icons need an internet connection.
+
+The custom 404 page uses GitHub Pages project paths for its recovery links and script. Test the deployed fallback using an invalid URL under the repository's website address; Python's standard server does not automatically serve the custom page for missing URLs.
 
 ## File organisation
 
-The HTML files sit in the project root. `style.css` contains the shared styles, and `script.js` handles navigation, theme switching, form validation, project filtering and the GitHub feed. Images are stored in `assets/images/` and social icons in `assets/icons/`.
+- Root HTML files: main pages and individual project pages.
+- `style.css`: shared styles, themes and responsive layouts.
+- `script.js`: navigation, theme switching, form validation, article navigation, project filtering and the GitHub feed.
+- `assets/images/`: portfolio images, project screenshots and testing evidence.
+- `assets/icons/`: social icons.
+- `assets/documents/`: downloadable CV.
+- `docs/`: design notes, decisions, AI-use disclosure and testing records.
 
-The project screenshots use WebP to reduce file size. The Cisco and Griffin screenshots were converted losslessly. The Smart House image was converted at quality 80 using Google's `cwebp` tool.
+Project images use WebP to reduce file size. The Cisco and Griffin screenshots were converted losslessly, and the Smart House image was converted at quality 80 using Google's `cwebp` tool.
 
-## CV
+## Testing
 
-[Download my CV](assets/documents/uchindami-mkandawire-cv.pdf). It is also available from the Home and About pages.
+The [testing checklist](docs/testing-checklist.md) records HTML validation, responsive checks, JavaScript functionality, GitHub API behaviour, keyboard accessibility, colour contrast and reduced-motion testing, with supporting screenshots.
 
-## Work still to finish
+The recorded local homepage Lighthouse results are:
 
-The Contact links on Griffin and Smart House need to point to the homepage contact section. The article needs a final word-count check and expansion to meet the 500-word requirement.
+| Category | Score |
+| --- | ---: |
+| Performance | 98 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 100 |
 
-The contact form checks input but does not send messages yet. Visitors can use the email link instead. Browser testing, final screenshots, Lighthouse results and the live website and Figma links still need to be added.
+These scores describe the saved local audit; deployed results may differ.
 
-## Credits
+## Credits and AI use
 
-The About page uses Devicon technology icons. The site uses the system fonts Segoe UI, Arial and sans-serif. Credits and permissions for the photographs, illustrations and SVG icons still need to be completed.
+The About page uses Devicon technology icons. The font stack uses Segoe UI, Arial and sans-serif. Google's `cwebp` tool was used for selected image conversions.
+
+AI assistance and my responsibility for the submitted work are described in the [AI-use disclosure](docs/ai-use.md).
 
 ## Project notes
 
